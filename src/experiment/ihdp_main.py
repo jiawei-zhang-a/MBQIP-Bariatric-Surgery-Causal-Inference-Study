@@ -56,7 +56,7 @@ def train_and_predict_dragons(t, y_unscaled, x, targeted_regularization=True, ou
     i = 0
     tf.random.set_random_seed(i)
     np.random.seed(i)
-    train_index, test_index = train_test_split(np.arange(x.shape[0]), test_size=0, random_state=1)
+    train_index, test_index = train_test_split(np.arange(x.shape[0]), random_state=1)
     test_index = train_index
 
     x_train, x_test = x[train_index], x[test_index]

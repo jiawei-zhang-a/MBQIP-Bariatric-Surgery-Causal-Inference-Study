@@ -11,9 +11,9 @@ options=(
 
 for i in ${options[@]}; do
     echo $i
-    python -m experiment.ihdp_main --data_base_dir /Users/claudiashi/ml/dragonnet/dat/ihdp/csv\
+    python -m experiment.ihdp_main --data_base_dir /Users/jiaweizhang/med/dragonnet/dat/ihdp/csv\
                                  --knob $i\
-                                 --output_base_dir /Users/claudiashi//ml/dragonnet/result/ihdp\
+                                 --output_base_dir /Users/jiaweizhang/med/dragonnet/result/ihdp\
 
 
 done

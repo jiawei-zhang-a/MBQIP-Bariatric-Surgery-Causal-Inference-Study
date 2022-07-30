@@ -20,10 +20,10 @@ for i in ${list[@]}; do
     for folder in ${folders[@]}; do
         echo $i
         echo $folder
-        python -m experiment.acic_main --data_base_dir /Users/claudiashi/data/ACIC_2018/\
+        python -m experiment.acic_main --data_base_dir/Users/jiaweizhang/med/data/ACIC_2018/\
                                      --knob $i\
                                      --folder $folder\
-                                     --output_base_dir /Users/claudiashi/ml/dragonnet/result/acic\
+                                     --output_base_dir /Users/jiaweizhang/med/dragonnet/result/acic\
 
     done
 
