@@ -8,7 +8,7 @@ def convert_file(x):
     return x
 
 
-def load_and_format_covariates_ihdp(file_path='/Users/claudiashi/data/ihdp_csv/1_ihdp_npci.csv'):
+def load_and_format_covariates_mbqip(file_path):
 
     data = np.loadtxt(file_path, delimiter=',')
 
@@ -21,7 +21,7 @@ def load_and_format_covariates_ihdp(file_path='/Users/claudiashi/data/ihdp_csv/1
     return x
 
 
-def load_all_other_crap(file_path='/Users/claudiashi/data/ihdp_csv/1_ihdp_npci.csv'):
+def load_all_other_crap(file_path):
     data = np.loadtxt(file_path, delimiter=',')
     t, y, y_cf = data[:, 0], data[:, 1][:, None], data[:, 2][:, None]
     mu_0, mu_1, x = data[:, 3][:, None], data[:, 4][:, None], data[:, 5:]

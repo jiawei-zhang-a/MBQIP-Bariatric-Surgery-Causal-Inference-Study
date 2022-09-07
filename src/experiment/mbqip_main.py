@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 import keras.backend as K
 from keras.optimizers import rmsprop, SGD, Adam
 from keras.callbacks import EarlyStopping, ModelCheckpoint, TensorBoard, ReduceLROnPlateau, TerminateOnNaN
-from experiment.idhp_data import *
+from experiment.mbqip_data import *
 
 
 def _split_output(yt_hat, t, y, y_scaler, x, index):
@@ -230,7 +230,7 @@ def train_and_predict_ned(t, y_unscaled, x, targeted_regularization=True, output
     return test_outputs, train_outputs
 
 
-def run_ihdp(data_base_dir='/Users/claudiashi/data/ihdp_csv', output_dir='~/result/ihdp/',
+def run_mbqip(data_base_dir, output_dir,
              knob_loss=dragonnet_loss_binarycross,
              ratio=1., dragon=''):
     print("the dragon is {}".format(dragon))
@@ -242,8 +242,8 @@ def run_ihdp(data_base_dir='/Users/claudiashi/data/ihdp_csv', output_dir='~/resu
         simulation_output_dir = os.path.join(output_dir, str(idx))
 
         os.makedirs(simulation_output_dir, exist_ok=True)
-
-        x = load_and_format_covariates_ihdp(simulation_file)
+    
+        x = load_and_format_covariates_mbqip(simulation_file)
         t, y, y_cf, mu_0, mu_1 = load_all_other_crap(simulation_file)
         np.savez_compressed(os.path.join(simulation_output_dir, "simulation_outputs.npz"),
                             t=t, y=y, y_cf=y_cf, mu_0=mu_0, mu_1=mu_1)
@@ -257,7 +257,6 @@ def run_ihdp(data_base_dir='/Users/claudiashi/data/ihdp_csv', output_dir='~/resu
                                                                    knob_loss=knob_loss, ratio=ratio, dragon=dragon,
                                                                    val_split=0.2, batch_size=64)
             else:
-
                 test_outputs, train_output = train_and_predict_dragons(t, y, x,
                                                                        targeted_regularization=is_targeted_regularization,
                                                                        output_dir=simulation_output_dir,
@@ -280,21 +279,22 @@ def run_ihdp(data_base_dir='/Users/claudiashi/data/ihdp_csv', output_dir='~/resu
                                     **output)
 
 
-def turn_knob(data_base_dir='/Users/claudiashi/data/test/', knob='dragonnet',
-              output_base_dir=''):
+def turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv', knob='dragonnet',
+              output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip'):
     output_dir = os.path.join(output_base_dir, knob)
 
     if knob == 'dragonnet':
-        run_ihdp(data_base_dir=data_base_dir, output_dir=output_dir, dragon='dragonnet')
+        run_mbqip(data_base_dir=data_base_dir, output_dir=output_dir, dragon='dragonnet')
 
     if knob == 'tarnet':
-        run_ihdp(data_base_dir=data_base_dir, output_dir=output_dir, dragon='tarnet')
+        run_mbqip(data_base_dir=data_base_dir, output_dir=output_dir, dragon='tarnet')
 
     if knob == 'nednet':
-        run_ihdp(data_base_dir=data_base_dir, output_dir=output_dir, dragon='nednet')
+        run_mbqip(data_base_dir=data_base_dir, output_dir=output_dir, dragon='nednet')
 
 
 def main():
+    print("it is working")
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_base_dir', type=str, help="path to directory LBIDD")
     parser.add_argument('--knob', type=str, default='early_stopping',
@@ -303,7 +303,7 @@ def main():
     parser.add_argument('--output_base_dir', type=str, help="directory to save the output")
 
     args = parser.parse_args()
-    turn_knob(args.data_base_dir, args.knob, args.output_base_dir)
+    turn_knob()
 
 
 if __name__ == '__main__':

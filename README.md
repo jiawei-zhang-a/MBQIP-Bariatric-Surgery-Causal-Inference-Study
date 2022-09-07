@@ -5,9 +5,11 @@ This repository contains software and data for "[Adapting Neural Networks for th
 The paper describes approaches to estimating causal effects from observational data using neural networks. The high-level idea is to modify standard neural net design and training in order to induce a bias towards accurate estimates.
 
 # Requirements and setup
-export PYTHONPATH="${PYTHONPATH}:/path/to/your/project/"
-conda create -n dragonnet python=3.7
-conda activate dragonnet 
+export PYTHONPATH="${PYTHONPATH}:/path/to/your/project/" \\
+conda create -n dragonnet python=3.7 \\
+conda activate dragonnet \\
+go into the src directory \\
+python experiment/ihdp_main.py
 
 You will need to install tensorflow 1.13, sklearn, numpy 1.15, keras 2.2.4 and, pandas 0.24.1
 
