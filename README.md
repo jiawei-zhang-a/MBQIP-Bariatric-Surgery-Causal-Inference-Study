@@ -5,28 +5,20 @@ This repository contains software and data for "[Adapting Neural Networks for th
 The paper describes approaches to estimating causal effects from observational data using neural networks. The high-level idea is to modify standard neural net design and training in order to induce a bias towards accurate estimates.
 
 # Requirements and setup
-export PYTHONPATH="${PYTHONPATH}:/path/to/your/project/" \\
-conda create -n dragonnet python=3.7 \\
-conda activate dragonnet \\
-go into the src directory \\
-python experiment/ihdp_main.py
+export PYTHONPATH="${PYTHONPATH}:/path/to/your/project/" 
+
+conda create -n dragonnet python=3.7 
+
+conda activate dragonnet 
+
+go into the src directory 
+
+python experiment/mbqip_main.py
 
 You will need to install tensorflow 1.13, sklearn, numpy 1.15, keras 2.2.4 and, pandas 0.24.1
 
 # Data
-
-1. IHDP
-This dataset is based on a randomized experiment investigating the effect of home visits by specialists on future cognitive scores. 
-It is generated via the npci package [`https://github.com/vdorie/npci`](https://github.com/vdorie/npci) (setting A)
-For convenience, we have also uploaded a portion of the simulated data in the dat folder. 
-This can be used for testing the code. 
-
-
-2. ACIC
-ACIC is a collection of semi-synthetic datasets derived from the linked birth and infant death data (LBIDD)
-- Here is the full dataset description [`https://www.researchgate.net/publication/11523952_Infant_Mortality_Statistics_from_the_1999_Period_Linked_BirthInfant_Death_Data_Set`](https://www.researchgate.net/publication/11523952_Infant_Mortality_Statistics_from_the_1999_Period_Linked_BirthInfant_Death_Data_Set)
-- Here is the GitHub repo associated with the competition  [`https://github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework/blob/master/data/LBIDD/scaling_params.csv`](https://github.com/IBM-HRL-MLHLS/IBM-Causal-Inference-Benchmarking-Framework/blob/master/data/LBIDD/scaling_params.csv)
-- For access to the ACIC 2018 competition data: Please see here [`https://www.synapse.org/#!Synapse:syn11294478/wiki/486304`](https://www.synapse.org/#!Synapse:syn11294478/wiki/486304)
+From my google drive
 
 # Reproducing neural net training for IHDP experiments
 The default setting would let you run Dragonnet, TARNET, and NEDnet under targeted regularization and default mode
