@@ -1,8 +1,9 @@
 import pandas as pd
 import numpy as np
+
 import os
 #load
-maindata = pd.DataFrame(pd.read_csv('../dat/mbqip/all_bmi&main_data.csv'))
+maindata = pd.DataFrame(pd.read_csv('../dat/mbqip/all_bmi_main_data.csv'))
 
 #anlysis before processing
 maindata_T = maindata.describe(include = 'all').T
@@ -11,13 +12,15 @@ maindata_T["num_distinct"] = maindata.nunique(axis = 0)
 maindata_T.head()
 maindata_T.to_csv("../dat/mbqip/analysis.csv")
 
-#scale the maindata
-max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))
-maindata['AGE'] = maindata[['AGE']].apply(max_min_scaler)
-
 #create the colomn with difference between the BMI and BMI_DISCH
 maindata['diff_BMI'] = maindata['BMI'] - maindata['BMI_DISCH']
 maindata = maindata.drop(["BMI","BMI_DISCH"],axis=1)
+
+#scale the maindata
+standard_scaler = lambda x : (x-np.mean(x))/np.std(x)
+max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))
+maindata['AGE'] = maindata[['AGE']].apply(standard_scaler)
+maindata['diff_BMI'] = maindata[['diff_BMI']].apply(standard_scaler)
 
 #extract five catogry
 Sleeve = maindata.dropna(subset = ['Sleeve']) #treated as t = 0
@@ -31,6 +34,7 @@ BPD_DS = maindata.dropna(subset = ['BPD/DS'])
 BPD_DS["treament"] = 1
 SADI_S = maindata.dropna(subset = ['SADI-S'])
 SADI_S["treament"] = 1
+
 
 #generate four Death Dataset
 if os.path.exists("../dat/mbqip/csv/Death") == False:

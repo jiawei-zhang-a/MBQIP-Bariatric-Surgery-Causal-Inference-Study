@@ -2,6 +2,13 @@ import pandas as pd
 import numpy as np
 
 
+
+"""
+treatment - 50
+death - y - 49
+caseID - 0
+
+"""
 def convert_file(x):
     x = x.values
     x = x.astype(float)
@@ -12,25 +19,24 @@ def load_and_format_covariates_mbqip(file_path):
 
     data = np.loadtxt(file_path, delimiter=',')
 
-    binfeats = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]
-    contfeats = [i for i in range(25) if i not in binfeats]
+    contfeats = [1]
+    binfeats = [i for i in range(2,49) if i not in contfeats]
 
-    mu_0, mu_1, x = data[:, 3][:, None], data[:, 4][:, None], data[:, 5:]
-    perm = binfeats + contfeats
-    x = x[:, perm]
+    perm = contfeats + binfeats
+    x = data[:, perm]
     return x
 
 
 def load_all_other_crap(file_path):
     data = np.loadtxt(file_path, delimiter=',')
-    t, y, y_cf = data[:, 0], data[:, 1][:, None], data[:, 2][:, None]
-    mu_0, mu_1, x = data[:, 3][:, None], data[:, 4][:, None], data[:, 5:]
-    return t.reshape(-1, 1), y, y_cf, mu_0, mu_1
+    t, y = data[:, 50], data[:, 49][:, None]
+    return t.reshape(-1, 1), y
 
 
 def main():
-    pass
-
+    #pass
+    load_and_format_covariates_mbqip("/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/Death/mbqip_1.csv")
+    #load_and_format_covariates_mbqip("/Users/jiaweizhang/med/dragonnet/dat/ihdp/csv/ihdp_npci_1.csv")
 
 if __name__ == '__main__':
     main()

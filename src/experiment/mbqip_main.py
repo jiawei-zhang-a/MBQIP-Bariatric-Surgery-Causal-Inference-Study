@@ -11,9 +11,9 @@ from keras.callbacks import EarlyStopping, ModelCheckpoint, TensorBoard, ReduceL
 from experiment.mbqip_data import *
 
 
-def _split_output(yt_hat, t, y, y_scaler, x, index):
-    q_t0 = y_scaler.inverse_transform(yt_hat[:, 0].copy())
-    q_t1 = y_scaler.inverse_transform(yt_hat[:, 1].copy())
+def _split_output(yt_hat, t, y, x, index):
+    q_t0 = yt_hat[:, 0].copy()
+    q_t1 = yt_hat[:, 1].copy()
     g = yt_hat[:, 2].copy()
 
     if yt_hat.shape[1] == 4:
@@ -21,7 +21,7 @@ def _split_output(yt_hat, t, y, y_scaler, x, index):
     else:
         eps = np.zeros_like(yt_hat[:, 2])
 
-    y = y_scaler.inverse_transform(y.copy())
+    y = y.copy()
     var = "average propensity for treated: {} and untreated: {}".format(g[t.squeeze() == 1.].mean(),
                                                                         g[t.squeeze() == 0.].mean())
     print(var)
@@ -29,11 +29,9 @@ def _split_output(yt_hat, t, y, y_scaler, x, index):
     return {'q_t0': q_t0, 'q_t1': q_t1, 'g': g, 't': t, 'y': y, 'x': x, 'index': index, 'eps': eps}
 
 
-def train_and_predict_dragons(t, y_unscaled, x, targeted_regularization=True, output_dir='',
+def train_and_predict_dragons(t, y, x, targeted_regularization=True, output_dir='',
                               knob_loss=dragonnet_loss_binarycross, ratio=1., dragon='', val_split=0.2, batch_size=64):
     verbose = 0
-    y_scaler = StandardScaler().fit(y_unscaled)
-    y = y_scaler.transform(y_unscaled)
     train_outputs = []
     test_outputs = []
 
@@ -51,7 +49,7 @@ def train_and_predict_dragons(t, y_unscaled, x, targeted_regularization=True, ou
     else:
         loss = knob_loss
 
-    # for reporducing the IHDP experimemt
+    # for reporducing the experimemt
 
     i = 0
     tf.random.set_random_seed(i)
@@ -107,18 +105,16 @@ def train_and_predict_dragons(t, y_unscaled, x, targeted_regularization=True, ou
     yt_hat_test = dragonnet.predict(x_test)
     yt_hat_train = dragonnet.predict(x_train)
 
-    test_outputs += [_split_output(yt_hat_test, t_test, y_test, y_scaler, x_test, test_index)]
-    train_outputs += [_split_output(yt_hat_train, t_train, y_train, y_scaler, x_train, train_index)]
+    test_outputs += [_split_output(yt_hat_test, t_test, y_test, x_test, test_index)]
+    train_outputs += [_split_output(yt_hat_train, t_train, y_train, x_train, train_index)]
     K.clear_session()
 
     return test_outputs, train_outputs
 
 
-def train_and_predict_ned(t, y_unscaled, x, targeted_regularization=True, output_dir='',
+def train_and_predict_ned(t, y, x, targeted_regularization=True, output_dir='',
                           knob_loss=dragonnet_loss_binarycross, ratio=1., dragon='', val_split=0.2, batch_size=64):
     verbose = 0
-    y_scaler = StandardScaler().fit(y_unscaled)
-    y = y_scaler.transform(y_unscaled)
 
     train_outputs = []
     test_outputs = []
@@ -128,7 +124,7 @@ def train_and_predict_ned(t, y_unscaled, x, targeted_regularization=True, output
     metrics_ned = [ned_loss]
     metrics_cut = [regression_loss]
 
-    # for reproducing the ihdp result
+    # for reproducing the result
     i = 0
 
     tf.random.set_random_seed(i)
@@ -223,8 +219,8 @@ def train_and_predict_ned(t, y_unscaled, x, targeted_regularization=True, output
     yt_hat_test = np.concatenate([y_hat_test, t_hat_test.reshape(-1, 1)], 1)
     yt_hat_train = np.concatenate([y_hat_train, t_hat_train.reshape(-1, 1)], 1)
 
-    test_outputs += [_split_output(yt_hat_test, t_test, y_test, y_scaler, x_test, test_index)]
-    train_outputs += [_split_output(yt_hat_train, t_train, y_train, y_scaler, x_train, train_index)]
+    test_outputs += [_split_output(yt_hat_test, t_test, y_test, x_test, test_index)]
+    train_outputs += [_split_output(yt_hat_train, t_train, y_train, x_train, train_index)]
     K.clear_session()
 
     return test_outputs, train_outputs
@@ -244,9 +240,9 @@ def run_mbqip(data_base_dir, output_dir,
         os.makedirs(simulation_output_dir, exist_ok=True)
     
         x = load_and_format_covariates_mbqip(simulation_file)
-        t, y, y_cf, mu_0, mu_1 = load_all_other_crap(simulation_file)
-        np.savez_compressed(os.path.join(simulation_output_dir, "simulation_outputs.npz"),
-                            t=t, y=y, y_cf=y_cf, mu_0=mu_0, mu_1=mu_1)
+        t, y = load_all_other_crap(simulation_file)
+        #np.savez_compressed(os.path.join(simulation_output_dir, "simulation_outputs.npz"),
+        #                    t=t, y=y, y_cf=y_cf, mu_0=mu_0, mu_1=mu_1)
 
         for is_targeted_regularization in [True, False]:
             print("Is targeted regularization: {}".format(is_targeted_regularization))
@@ -279,7 +275,7 @@ def run_mbqip(data_base_dir, output_dir,
                                     **output)
 
 
-def turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv', knob='dragonnet',
+def turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/', knob='dragonnet',
               output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip'):
     output_dir = os.path.join(output_base_dir, knob)
 
@@ -294,7 +290,6 @@ def turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv', kn
 
 
 def main():
-    print("it is working")
     parser = argparse.ArgumentParser()
     parser.add_argument('--data_base_dir', type=str, help="path to directory LBIDD")
     parser.add_argument('--knob', type=str, default='early_stopping',
@@ -303,8 +298,17 @@ def main():
     parser.add_argument('--output_base_dir', type=str, help="directory to save the output")
 
     args = parser.parse_args()
-    turn_knob()
-
-
+    turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/Death', knob='dragonnet',
+              output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/Death')
+"""
+    turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/diff_BMI', knob='dragonnet',
+              output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/diff_BMI')
+    turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/intervention', knob='dragonnet',
+              output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/intervention')
+    turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/readmission', knob='dragonnet',
+              output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/readmission')
+    turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/reoperation', knob='dragonnet',
+              output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/reoperation')
+"""
 if __name__ == '__main__':
     main()
