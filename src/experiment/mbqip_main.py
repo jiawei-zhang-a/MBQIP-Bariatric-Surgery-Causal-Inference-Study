@@ -296,15 +296,19 @@ def main():
                         help="dragonnet or tarnet or nednet")
 
     parser.add_argument('--output_base_dir', type=str, help="directory to save the output")
-
     args = parser.parse_args()
-    turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/Death', knob='dragonnet',
-              output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/Death')
-"""
-    turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/diff_BMI', knob='dragonnet',
-              output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/diff_BMI')
+    turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/diff_BMI', knob='dragonnet',output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/diff_BMI')
+"""  
     turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/intervention', knob='dragonnet',
               output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/intervention')
+ 
+turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/Death', knob='dragonnet',
+              output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/Death')
+    turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/intervention', knob='dragonnet',
+              output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/intervention')
+"""
+"""    
+
     turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/readmission', knob='dragonnet',
               output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/readmission')
     turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/reoperation', knob='dragonnet',

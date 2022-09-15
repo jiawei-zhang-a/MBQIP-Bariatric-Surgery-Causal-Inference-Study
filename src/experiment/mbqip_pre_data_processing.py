@@ -18,7 +18,6 @@ maindata = maindata.drop(["BMI","BMI_DISCH"],axis=1)
 
 #scale the maindata
 standard_scaler = lambda x : (x-np.mean(x))/np.std(x)
-max_min_scaler = lambda x : (x-np.min(x))/(np.max(x)-np.min(x))
 maindata['AGE'] = maindata[['AGE']].apply(standard_scaler)
 maindata['diff_BMI'] = maindata[['diff_BMI']].apply(standard_scaler)
 
@@ -151,7 +150,3 @@ dataset_4 = dataset_4.drop(["RYGB","Band","BPD/DS","SADI-S","Sleeve","REOP30_b'Y
 dataset_4 = dataset_4.sample(frac=1)
 dataset_4.to_csv("../dat/mbqip/csv/diff_BMI/mbqip_4.csv", index = False)
 
-
-
-
-"REOP30_b'Yes'","diff_BMI","INTV30_b'Yes'","READ30_b'Yes'","DEATH_1.0",
