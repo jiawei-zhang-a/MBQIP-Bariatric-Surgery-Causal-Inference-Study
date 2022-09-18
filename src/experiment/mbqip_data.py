@@ -29,12 +29,9 @@ def load_and_format_covariates_mbqip(file_path):
 
 def load_all_other_crap(file_path):
     data = np.loadtxt(file_path, delimiter=',')
-    contfeats = [1]
-    binfeats = [i for i in range(2,49) if i not in contfeats]   
-    perm = contfeats + binfeats 
+    perm = 49
     t, y = data[:, 50], data[:,perm][:, None]
     
-    print(y)
     return t.reshape(-1, 1), y
 
 

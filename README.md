@@ -7,6 +7,8 @@ The paper describes approaches to estimating causal effects from observational d
 # Requirements and setup
 export PYTHONPATH="${PYTHONPATH}:/path/to/your/project/" 
 
+export PYTHONPATH="${PYTHONPATH}:/Users/jiaweizhang/med/dragonnet"
+
 conda create -n dragonnet python=3.7 
 
 conda activate dragonnet 

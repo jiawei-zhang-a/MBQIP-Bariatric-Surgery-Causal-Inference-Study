@@ -11,7 +11,7 @@ def load_data(knob='default', replication=1, model='baseline', train_test='test'
     loading train test experiment results
     """
 
-    file_path = '../../result/{}/'.format(knob)
+    file_path = '/Users/jiaweizhang/med/dragonnet/result/mbqip/BMI/{}/'.format(knob)
     data = load(file_path + '{}/{}/0_replication_{}.npz'.format(replication, model, train_test))
 
     return data['q_t0'].reshape(-1, 1), data['q_t1'].reshape(-1, 1), data['g'].reshape(-1, 1), \
@@ -56,13 +56,21 @@ def make_table(train_test='train', n_replication=50):
 
 
 def main():
+    q_t0, q_t1, g, t, y_dragon, index, eps = load_data(knob='dragonnet',replication=0,model='targeted_regularization', train_test='train')
+
+    print(q_t1-q_t0)
+
+    psi_n, psi_tmle, initial_loss, final_loss, g_loss = get_estimate(q_t0, q_t1, g, t, y_dragon, index, eps,
+                                                                                 truncate_level=0.01)
+    print(psi_n,psi_tmle)
+    """
     dict, tmle_dict = make_table()
     print("The back door adjustment result is below")
     print(dict)
 
     print("the tmle estimator result is this ")
     print(tmle_dict)
-
+"""
 
 if __name__ == "__main__":
     main()
