@@ -297,7 +297,7 @@ def main():
 
     parser.add_argument('--output_base_dir', type=str, help="directory to save the output")
     args = parser.parse_args()
-    turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/BMI', knob='dragonnet',output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/BMI')
+    turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/diff_BMI/Band', knob='dragonnet',output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/BMI')
 """  
     turn_knob(data_base_dir='/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/intervention', knob='dragonnet',
               output_base_dir='/Users/jiaweizhang/med/dragonnet/result/mbqip/intervention')

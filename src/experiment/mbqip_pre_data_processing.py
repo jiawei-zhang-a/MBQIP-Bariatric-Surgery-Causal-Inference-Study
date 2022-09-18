@@ -149,7 +149,7 @@ dataset_1 = dataset_1.sample(frac=1)
 n=dataset_1.shape[0]
 for i in range(int(n/slice_size)+1):
     dat = dataset_1.iloc[i*slice_size:min((i+1)*slice_size,n)]
-    dat.to_csv("../dat/mbqip/csv/diff_BMI/RYGB/mbqip_%d.csv"%i, index = False)
+    dat.to_csv("../dat/mbqip/csv/diff_BMI/RYGB/mbqip_%d.csv"%i, header = False,index = False)
 
 
 dataset_2 = pd.concat([Band,Sleeve])
@@ -158,7 +158,7 @@ dataset_2 = dataset_2.sample(frac=1)
 n=dataset_2.shape[0]
 for i in range(int(n/slice_size)+1):
     dat = dataset_2.iloc[i*slice_size:min((i+1)*slice_size,n)]
-    dat.to_csv("../dat/mbqip/csv/diff_BMI/Band/mbqip_%d.csv"%i, index = False)
+    dat.to_csv("../dat/mbqip/csv/diff_BMI/Band/mbqip_%d.csv"%i, header = False,index = False)
 
 
 dataset_3 = pd.concat([BPD_DS,Sleeve])
@@ -167,7 +167,7 @@ dataset_3 = dataset_3.sample(frac=1)
 n=dataset_3.shape[0]
 for i in range(int(n/slice_size)+1):
     dat =  dataset_3.iloc[i*slice_size:min((i+1)*slice_size,n)]
-    dat.to_csv("../dat/mbqip/csv/diff_BMI/BPD_DS/mbqip_%d.csv"%i, index = False)
+    dat.to_csv("../dat/mbqip/csv/diff_BMI/BPD_DS/mbqip_%d.csv"%i,header = False, index = False)
 
 
 dataset_4 = pd.concat([SADI_S,Sleeve])
@@ -176,4 +176,4 @@ dataset_4 = dataset_4.sample(frac=1)
 n=dataset_4.shape[0]
 for i in range(int(n/slice_size)+1):
     dat = dataset_4.iloc[i*slice_size:min((i+1)*slice_size,n)]
-    dat.to_csv("../dat/mbqip/csv/diff_BMI/SADI-S/mbqip_%d.csv"%i, index = False)
+    dat.to_csv("../dat/mbqip/csv/diff_BMI/SADI-S/mbqip_%d.csv"%i, header = False,index = False)
