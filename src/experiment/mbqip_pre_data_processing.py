@@ -131,6 +131,7 @@ dataset_4.to_csv("../dat/mbqip/csv/intervention/mbqip_4.csv", index = False)
 
 """
 
+slice_size = 50000
 #generate four diff_BMI Dataset
 if os.path.exists("../dat/mbqip/csv/diff_BMI") == False:
     os.mkdir("../dat/mbqip/csv/diff_BMI")
@@ -138,8 +139,8 @@ dataset_1 = pd.concat([RYGB,Sleeve])
 dataset_1 = dataset_1.drop(["RYGB","Band","BPD/DS","SADI-S","Sleeve","REOP30_b'Yes'","READ30_b'Yes'","INTV30_b'Yes'","DEATH_1.0"],axis=1)
 dataset_1 = dataset_1.sample(frac=1)
 n=dataset_1.shape[0]
-for i in range(int(n/2000)):
-    dat = dataset_1.iloc[i*2000:(i+1)*2000]
+for i in range(int(n/slice_size)+1):
+    dat = dataset_1.iloc[i*slice_size:min((i+1)*slice_size,n)]
     dat.to_csv("../dat/mbqip/csv/diff_BMI/RYGB/mbqip_%d.csv"%i, index = False)
 
 
@@ -148,9 +149,8 @@ dataset_2 = dataset_2.drop(["RYGB","Band","BPD/DS","SADI-S","Sleeve","REOP30_b'Y
 dataset_2 = dataset_2.sample(frac=1)
 dataset_2.to_csv("../dat/mbqip/csv/diff_BMI/mbqip_2.csv", index = False)
 n=dataset_2.shape[0]
-
-for i in range(int(n/2000)):
-    dat = dataset_2.iloc[i*2000:(i+1)*2000]
+for i in range(int(n/slice_size)+1):
+    dat = dataset_2.iloc[i*slice_size:min((i+1)*slice_size,n)]
     dat.to_csv("../dat/mbqip/csv/diff_BMI/Band/mbqip_%d.csv"%i, index = False)
 
 
@@ -158,8 +158,8 @@ dataset_3 = pd.concat([BPD_DS,Sleeve])
 dataset_3 = dataset_3.drop(["RYGB","Band","BPD/DS","SADI-S","Sleeve","REOP30_b'Yes'","READ30_b'Yes'","INTV30_b'Yes'","DEATH_1.0"],axis=1)
 dataset_3 = dataset_3.sample(frac=1)
 n=dataset_3.shape[0]
-for i in range(int(n/2000)):
-    dat =  dataset_3.iloc[i*2000:(i+1)*2000]
+for i in range(int(n/slice_size)+1):
+    dat =  dataset_3.iloc[i*slice_size:min((i+1)*slice_size,n)]
     dat.to_csv("../dat/mbqip/csv/diff_BMI/BPD_DS/mbqip_%d.csv"%i, index = False)
 
 
@@ -167,5 +167,5 @@ dataset_4 = pd.concat([SADI_S,Sleeve])
 dataset_4 = dataset_4.drop(["RYGB","Band","BPD/DS","SADI-S","Sleeve","REOP30_b'Yes'","READ30_b'Yes'","INTV30_b'Yes'","DEATH_1.0"],axis=1)
 dataset_4 = dataset_4.sample(frac=1)
 n=dataset_4.shape[0]
-for i in range(int(n/2000)):
-    dataset_4.iloc[i*2000:(i+1)*2000].to_csv("../dat/mbqip/csv/diff_BMI/SADI-S/mbqip_%d.csv"%i, index = False)
+for i in range(int(n/slice_size)+1):
+    dataset_4.iloc[i*slice_size:min((i+1)*slice_size,n)].to_csv("../dat/mbqip/csv/diff_BMI/SADI-S/mbqip_%d.csv"%i, index = False)
