@@ -30,15 +30,16 @@ def get_estimate(q_t0, q_t1, g, t, y_dragon, index, eps, truncate_level=0.01):
     return psi_n, psi_tmle, initial_loss, final_loss, g_loss
 
 
-def make_table(train_test='train', n_replication=50):
+def make_table(train_test='test', n_replication=11):
     dict = {'tarnet': {'baseline': {'back_door': 0, }, 'targeted_regularization': 0},
             'dragonnet': {'baseline': 0, 'targeted_regularization': 0},
             'nednet': {'baseline': 0, 'targeted_regularization': 0}}
     tmle_dict = copy.deepcopy(dict)
 
-    for knob in ['dragonnet', 'tarnet']:
+    #for knob in ['dragonnet', 'tarnet']:
+    for knob in ['dragonnet']:
         for model in ['baseline', 'targeted_regularization']:
-            simple_errors, tmle_errors = [], []
+            ate, ate_tmle = [], []
             for rep in range(n_replication):
                 q_t0, q_t1, g, t, y_dragon, index, eps = load_data(knob, rep, model, train_test)
 
@@ -46,16 +47,17 @@ def make_table(train_test='train', n_replication=50):
                 psi_n, psi_tmle, initial_loss, final_loss, g_loss = get_estimate(q_t0, q_t1, g, t, y_dragon, index, eps,
                                                                                  truncate_level=0.01)
 
-                ate = psi_n.mean()
-                ate_tmle = psi_tmle.mean()
+                ate.append(psi_n.mean())
+                ate_tmle.append(psi_tmle.mean())
 
-            dict[knob][model].append(ate)
-            tmle_dict[knob][model] .append(ate_tmle)
+            dict[knob][model]=np.mean(ate)
+            tmle_dict[knob][model]=np.mean(ate_tmle)
 
     return dict, tmle_dict
 
 
 def main():
+    """
     q_t0, q_t1, g, t, y_dragon, index, eps = load_data(knob='dragonnet',replication=0,model='targeted_regularization', train_test='train')
 
     print(q_t1-q_t0)
@@ -70,7 +72,7 @@ def main():
 
     print("the tmle estimator result is this ")
     print(tmle_dict)
-"""
+
 
 if __name__ == "__main__":
     main()

@@ -19,7 +19,7 @@ maindata = maindata.drop(["BMI","BMI_DISCH"],axis=1)
 #scale the maindata
 standard_scaler = lambda x : (x-np.mean(x))/np.std(x)
 maindata['AGE'] = maindata[['AGE']].apply(standard_scaler)
-maindata['diff_BMI'] = maindata[['diff_BMI']].apply(standard_scaler)
+#maindata['diff_BMI'] = maindata[['diff_BMI']].apply(standard_scaler)
 
 #extract five catogry
 Sleeve = maindata.dropna(subset = ['Sleeve']) #treated as t = 0
@@ -133,16 +133,12 @@ dataset_4.to_csv("../dat/mbqip/csv/intervention/mbqip_4.csv", index = False)
 
 slice_size = 50000
 #generate four diff_BMI Dataset
-if os.path.exists("../dat/mbqip/csv/diff_BMI") == False:
-    os.mkdir("../dat/mbqip/csv/diff_BMI")
-if os.path.exists("../dat/mbqip/csv/diff_BMI/RYGB") == False:
-    os.mkdir("../dat/mbqip/csv/diff_BMI/RYGB")
-if os.path.exists("../dat/mbqip/csv/diff_BMI/BPD_DS") == False:
-    os.mkdir("../dat/mbqip/csv/diff_BMI/BPD_DS")
-if os.path.exists("../dat/mbqip/csv/diff_BMI/SADI-S") == False:
-    os.mkdir("../dat/mbqip/csv/diff_BMI/SADI-S")
-if os.path.exists("../dat/mbqip/csv/diff_BMI/Band") == False:
-    os.mkdir("../dat/mbqip/csv/diff_BMI/Band")
+os.makedirs("../dat/mbqip/csv/diff_BMI",exist_ok=True)
+os.makedirs("../dat/mbqip/csv/diff_BMI/RYGB",exist_ok=True)
+os.makedirs("../dat/mbqip/csv/diff_BMI/BPD_DS",exist_ok=True)
+os.makedirs("../dat/mbqip/csv/diff_BMI/SADI-S",exist_ok=True)
+os.makedirs("../dat/mbqip/csv/diff_BMI/Band",exist_ok=True)
+
 dataset_1 = pd.concat([RYGB,Sleeve])
 dataset_1 = dataset_1.drop(["RYGB","Band","BPD/DS","SADI-S","Sleeve","REOP30_b'Yes'","READ30_b'Yes'","INTV30_b'Yes'","DEATH_1.0"],axis=1)
 dataset_1 = dataset_1.sample(frac=1)

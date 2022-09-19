@@ -13,6 +13,8 @@ conda create -n dragonnet python=3.7
 
 conda activate dragonnet 
 
+sh setup.sh
+
 go into the src directory 
 
 python experiment/mbqip_main.py
