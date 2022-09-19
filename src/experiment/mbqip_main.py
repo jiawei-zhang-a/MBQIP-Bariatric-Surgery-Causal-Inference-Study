@@ -294,15 +294,13 @@ def turn_knob(data_base_dir, knob='dragonnet',
 
 
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--data_base_dir', type=str, help="path to directory LBIDD")
-    parser.add_argument('--knob', type=str, default='early_stopping',
-                        help="dragonnet or tarnet or nednet")
-
-    parser.add_argument('--output_base_dir', type=str, help="directory to save the output")
-
-    args = parser.parse_args()
-    turn_knob(args.data_base_dir, args.knob, args.output_base_dir)
-    
+    turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/Band", "dragonnet", "/home/zc2157/zc2157/dragonnet/result/diff_BMI/Band")
+    turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/BPD_DS", "dragonnet", "/home/zc2157/zc2157/dragonnet/result/diff_BMI/BPD_DS")
+    turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/RYGB", "dragonnet", "/home/zc2157/zc2157/dragonnet/result/diff_BMI/RYGB")
+    turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/SADI-S", "dragonnet", "/home/zc2157/zc2157/dragonnet/result/diff_BMI/SADI-S")
+    turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/Band", "nednet", "/home/zc2157/zc2157/dragonnet/result/diff_BMI/Band")
+    turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/BPD_DS", "nednet", "/home/zc2157/zc2157/dragonnet/result/diff_BMI/BPD_DS")
+    turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/RYGB", "nednet", "/home/zc2157/zc2157/dragonnet/result/diff_BMI/RYGB")
+    turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/SADI-S", "nednet", "/home/zc2157/zc2157/dragonnet/result/diff_BMI/SADI-S")
 if __name__ == '__main__':
     main()
