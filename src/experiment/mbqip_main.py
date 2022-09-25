@@ -294,10 +294,10 @@ def turn_knob(data_base_dir, knob='dragonnet',
 
 
 def main():
-    #turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/Band", "dragonnet", "/home/zc2157/zc2157/dragonnet/Band")
+    turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/Band", "dragonnet", "/home/zc2157/zc2157/dragonnet/Band")
     #turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/BPD_DS", "dragonnet", "/home/zc2157/zc2157/dragonnet/BPD_DS")
-    turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/RYGB", "dragonnet", "/home/zc2157/zc2157/dragonnet/RYGB")
-    turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/SADI-S", "dragonnet", "/home/zc2157/zc2157/dragonnet/SADI-S")
+    #turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/RYGB", "dragonnet", "/home/zc2157/zc2157/dragonnet/RYGB")
+    #turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/SADI-S", "dragonnet", "/home/zc2157/zc2157/dragonnet/SADI-S")
     turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/Band", "nednet", "/home/zc2157/zc2157/dragonnet/Band")
     turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/BPD_DS", "nednet", "/home/zc2157/zc2157/dragonnet/BPD_DS")
     turn_knob("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/RYGB", "nednet", "/home/zc2157/zc2157/dragonnet/RYGB")
