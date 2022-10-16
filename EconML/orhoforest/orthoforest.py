@@ -64,9 +64,10 @@ def run_mbqip(data_base_dir='/', output_dir='~/result/'):
         f.write("#################")
 
 def main():
-    """
     f.write("\nBand")
     run_mbqip("/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/diff_BMI/Band","/Users/jiaweizhang/med/dragonnet/result")
+    f.close()
+    """
     f.write("\nBPD_DS")    
     run_mbqip("/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/diff_BMI/BPD_DS","/Users/jiaweizhang/med/dragonnet/result")
     f.write("\nRYGB")
@@ -75,15 +76,7 @@ def main():
     run_mbqip("/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/diff_BMI/SADI-S","/Users/jiaweizhang/med/dragonnet/result")
     f.close()
     """
-
-    f.write("\nBand")
-    run_mbqip("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/BPD_DS", "dragonnet", "/home/zc2157/zc2157/dragonnet/BPD_DS")
-    f.write("\nBPD_DS")    
-    run_mbqip("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/BPD_DS", "dragonnet", "/home/zc2157/zc2157/dragonnet/BPD_DS")
-    f.write("\nRYGB")
-    run_mbqip("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/RYGB", "dragonnet", "/home/zc2157/zc2157/dragonnet/RYGB")
-    f.write("\nSADI-S")
-    run_mbqip("/home/zc2157/zc2157/dragonnet/dat/mbqip/csv/diff_BMI/SADI-S", "dragonnet", "/home/zc2157/zc2157/dragonnet/SADI-S")    f.close()
+    
 if __name__ == '__main__':
     main()
 
