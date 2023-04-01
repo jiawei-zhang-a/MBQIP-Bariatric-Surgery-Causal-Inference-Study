@@ -1,0 +1,13 @@
+[-0.02782308]
+(array([-1.09744305]), array([1.04179689]))
+#################
+[-0.89559349]
+(array([-7.90024241]), array([6.10905544]))
+#################
+[0.33006119]
+(array([-7.65996938]), array([8.32009176]))
+#################
+Objective did not converge. You might want to increase the number of iterations, check the scale of the features or consider increasing regularisation. Duality gap: 1.009e+03, tolerance: 1.355e+02
+[-0.44261197]
+(array([-5.46872326]), array([4.58349933]))
+#################

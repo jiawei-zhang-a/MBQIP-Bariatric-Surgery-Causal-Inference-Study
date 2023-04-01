@@ -1,2 +1,0 @@
-slurmstepd: error: *** JOB 25422216 ON cs216 CANCELLED AT 2022-09-25T02:25:17 DUE TO TIME LIMIT ***
-slurmstepd: error: Detected 1 oom-kill event(s) in StepId=25422216.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.
