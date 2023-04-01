@@ -1,11 +1,9 @@
 from econml.grf import CausalForest, CausalIVForest, RegressionForest
 from econml.dml import CausalForestDML
 from sklearn.model_selection import train_test_split
+from xgboost import XGBRegressor
 import numpy as np
-import scipy.special
 import glob
-import matplotlib.pyplot as plt
-from sklearn.tree import plot_tree
 import os
 
 def load_and_format_covariates_mbqip(file_path):
@@ -47,16 +45,34 @@ def run_mbqip(data_base_dir='/', output_dir='~/result/'):
         train_output_dir = simulation_output_dir
         os.makedirs(train_output_dir, exist_ok=True)
 
-
+        """
         est = CausalForest(criterion='het', n_estimators=400, min_samples_leaf=5, max_depth=None,
                         min_var_fraction_leaf=None, min_var_leaf_on_val=True,
                         min_impurity_decrease = 0.0, max_samples=0.45, min_balancedness_tol=.45,
                         warm_start=False, inference=True, fit_intercept=True, subforest_size=4,
                         honest=True, verbose=0, n_jobs=-1, random_state=1235)
-        est.fit(x_train,t_train,y_train)
-        print(idx)
-        print(np.mean(est.predict(x_test)))
-        print("#################")
+        """
+        causal_forest = CausalForestDML(
+            model_y=XGBRegressor(),
+            model_t=XGBRegressor(),
+            n_jobs=-1,
+        )
+        causal_forest.fit(y_train,t_train,X=x_train)
+        treatment_effect = causal_forest.ate(x_train)
+        lower_bound, upper_bound = causal_forest.ate_interval(x_train, alpha=0.05)
+        
+        print(x_train.shape)
+        print("Treatment effect for Train: {}".format(treatment_effect))
+        print("Lower bound: {}".format(lower_bound))
+        print("Upper bound: {}".format(upper_bound))
+
+        print(x_test.shape)
+        treatment_effect = causal_forest.ate(x_test)
+        lower_bound, upper_bound = causal_forest.ate_interval(x_test, alpha=0.05)
+        print("Treatment effect for Test: {}".format(treatment_effect))
+        print("Lower bound: {}".format(lower_bound))
+        print("Upper bound: {}".format(upper_bound))        
+
 
 def main():
     print("\nBand")
@@ -70,3 +86,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
