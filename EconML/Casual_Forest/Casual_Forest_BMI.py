@@ -8,7 +8,6 @@ import matplotlib.pyplot as plt
 from sklearn.tree import plot_tree
 from XGBoost import XGBoost
 
-import os
 
 def load_and_format_covariates_mbqip(file_path):
 
@@ -54,8 +53,8 @@ def run_mbqip(data_base_dir='/'):
     return ans
 
 def main():
-    run_mbqip("/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/BMI")
-
+    PATH = "/scratch/jz4721/dragonnet/"
+    run_mbqip(PATH + "dat/mbqip/csv/BMI")
 
 if __name__ == '__main__':
     main()

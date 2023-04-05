@@ -2,11 +2,7 @@ from econml.grf import CausalForest, CausalIVForest, RegressionForest
 from econml.dml import CausalForestDML
 from sklearn.model_selection import train_test_split
 import numpy as np
-import scipy.special
-import glob
-import matplotlib.pyplot as plt
 from sklearn.tree import plot_tree
-import os
 
 def load_and_format_covariates_mbqip(file_path):
     data = np.loadtxt(file_path, delimiter=',')
@@ -49,15 +45,16 @@ def run_mbqip(data_base_dir):
         print("#################")
 
 def main():
+    PATH = "/scratch/jz4721/dragonnet/"
     print("\list \n(1)RYGB\n(2)Band\n(3)BPD-DS\n(4)SADI-S \nrelative treatment effect\n")
     print("\nDeath")
-    run_mbqip("/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/Death")
+    run_mbqip(PATH + "dat/mbqip/csv/Death")
     print("\nintervention")    
-    run_mbqip("/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/intervention")
+    run_mbqip(PATH + "dat/mbqip/csv/intervention")
     print("\nreadmission")
-    run_mbqip("/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/readmission")
+    run_mbqip(PATH + "dat/mbqip/csv/readmission")
     print("\nreoperation")
-    run_mbqip("/Users/jiaweizhang/med/dragonnet/dat/mbqip/csv/reoperation")
+    run_mbqip(PATH + "dat/mbqip/csv/reoperation")
 
 if __name__ == '__main__':
     main()
