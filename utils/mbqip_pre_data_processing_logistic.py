@@ -4,7 +4,7 @@ import numpy as np
 import os
 #load
 import sys
-sys.path.append('../dat/mbqip')
+sys.path.append('../data/mbqip')
 maindata = pd.DataFrame(pd.read_csv('all_bmi_main_data.csv'))
 
 #anlysis before processing

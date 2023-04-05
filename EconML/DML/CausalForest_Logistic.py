@@ -1,10 +1,7 @@
-from econml.grf import CausalForest, CausalIVForest, RegressionForest
-from econml.dml import CausalForestDML
+from econml.grf import CausalForest
 from sklearn.model_selection import train_test_split
-from xgboost import XGBRegressor
 import numpy as np
 import glob
-import os
 
 def load_and_format_covariates_mbqip(file_path):
     data = np.loadtxt(file_path, delimiter=',')

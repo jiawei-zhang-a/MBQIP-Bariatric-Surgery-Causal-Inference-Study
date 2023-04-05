@@ -6,9 +6,9 @@ from econml.orf import DROrthoForest
 from sklearn.ensemble import RandomForestRegressor
 
 def main():
-    PATH = "/scratch/jz4721/dragonnet/"
+    PATH = "/scratch/jz4721/dragonnet/data/mbqip/csv/BMI"
     est = DROrthoForest(model_Y = RandomForestRegressor())
-    ans = mbqip_utils.run_mbqip(PATH + "dat/mbqip/csv/BMI",est)
+    ans = mbqip_utils.run_mbqip(PATH, est)
     print(ans)
 
 if __name__ == '__main__':
