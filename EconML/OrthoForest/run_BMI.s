@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=CausalForest
+#SBATCH --job-name=OrthoForest
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=40
 #SBATCH --ntasks-per-node=1
