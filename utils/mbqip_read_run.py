@@ -1,23 +1,5 @@
 import numpy as np
 import glob
-import json
-
-def load_config(file_path):
-    with open(file_path, 'r') as config_file:
-        config = json.load(config_file)
-    return config
-
-config = load_config('config.json')
-data_path = config['data_path']
-
-def load_config(file_path):
-    with open(file_path, 'r') as config_file:
-        config = json.load(config_file)
-    return config
-
-config = load_config('config.json')
-data_path = config['data_path']
-
 
 def load_and_format_covariates_mbqip(file_path):
 
@@ -38,7 +20,7 @@ def load_all_other_crap(file_path):
     return  t.reshape(-1,), y.reshape(-1,)
 
 
-def run_mbqip(est, data_base_dir = data_path):
+def run_mbqip(est, data_base_dir):
 
     simulation_files = sorted(glob.glob("{}/*.csv".format(data_base_dir)))
     ans = []
