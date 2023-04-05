@@ -30,7 +30,7 @@ def load_all_other_crap(file_path):
     perm = 49
     t, y = data[:, 50], data[:,perm][:, None]
     
-    return t.reshape(-1, 1), y
+    return  t.reshape(-1,), y.reshape(-1,)
 
 
 def run_mbqip(data_base_dir='/'):
