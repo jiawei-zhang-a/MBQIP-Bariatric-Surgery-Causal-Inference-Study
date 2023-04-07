@@ -1,52 +1,30 @@
-import numpy as np
-import glob
-from sklearn.ensemble import RandomForestRegressor, RandomForestClassifier
-from econml.dml import LinearDML
-
-def load_and_format_covariates_mbqip(file_path):
-
-    data = np.loadtxt(file_path, delimiter=',')
-
-    contfeats = [1]
-    binfeats = [i for i in range(2,49) if i not in contfeats]
-
-    perm = contfeats + binfeats
-    x = data[:, perm]
-    return x
-
-
-def load_all_other_crap(file_path):
-    data = np.loadtxt(file_path, delimiter=',')
-    perm = 49
-    t, y = data[:, 50], data[:,perm][:, None]
-    
-    return  t.reshape(-1,), y.reshape(-1,)
-
-
-def run_mbqip(data_base_dir='/'):
-
-    simulation_files = sorted(glob.glob("{}/*.csv".format(data_base_dir)))
-    ans = []
-    for idx, simulation_file in enumerate(simulation_files):
-
-        x = load_and_format_covariates_mbqip(simulation_file)
-        t, y = load_all_other_crap(simulation_file)
-        print(t)
-        est = est = LinearDML(model_y=RandomForestRegressor(),
-                model_t=RandomForestClassifier(min_samples_leaf=10),
-                discrete_treatment=True,
-                linear_first_stages=False,
-                cv=6)
-        est.fit(y,t,X = x,W=None)
-
-        print(est.ate_interval(x))
-
-    return ans
+from econml.dml import CausalForestDML
+from sklearn.ensemble import RandomForestRegressor
+from econml.metalearners import XLearner,TLearner,SLearner,DomainAdaptationLearner
+import xgboost as xgb
+import sys
+sys.path.append('../../utils')
+import mbqip_read_run as mbqip_utils
 
 def main():
-    PATH = "/scratch/jz4721/dragonnet/"
-    run_mbqip(PATH + "dat/mbqip/csv/BMI")
+    print("\list \n(1)RYGB\n(2)Band\n(3)BPD-DS\n(4)SADI-S \BMI treatment effect\n")
 
+    print("SLearner")
+    est = SLearner(overall_model=RandomForestRegressor())
+    mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI")
 
+    print("TLearner")
+    est = TLearner(models=RandomForestRegressor())
+    mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI")
+
+    print("XLearner")
+    est = XLearner(models=RandomForestRegressor(), cate_models=RandomForestRegressor())
+    mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI")
+
+    print("DomainAdaptationLearner")
+    est = DomainAdaptationLearner(models=RandomForestRegressor(), final_model=RandomForestRegressor())
+    mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI")
+
+    
 if __name__ == '__main__':
     main()

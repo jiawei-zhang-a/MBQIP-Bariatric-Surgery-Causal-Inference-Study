@@ -17,7 +17,7 @@ def main():
                             min_samples_leaf=10,
                             verbose=0,
                             min_weight_fraction_leaf=.005)
-    mbqip_utils.run_mbqip(est, "/scratch/jz4721/dragonnet/dat/mbqip/csv/BMI")
+    mbqip_utils.run_mbqip(est, "/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI")
     
     print("ForestDRLearner with XGB")
     est = ForestDRLearner(model_regression=xgb.XGBRegressor(),

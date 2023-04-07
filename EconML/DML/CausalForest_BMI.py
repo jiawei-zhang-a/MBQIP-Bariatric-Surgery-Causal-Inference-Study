@@ -12,7 +12,7 @@ def main():
                         criterion='mse', n_estimators=1000,
                         min_impurity_decrease=0.001,
                         random_state=123)
-    mbqip_utils.run_mbqip(est,"/scratch/jz4721/dragonnet/dat/mbqip/csv/BMI")
+    mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI")
     
 if __name__ == '__main__':
     main()
