@@ -6,12 +6,12 @@ def get_counterfactual_outcome (est,X, Y, T):
 
     # Get the counterfactual outcome for each sample
     cate_pred = est.effect(X)
-    y_0 = y - T * cate_pred
+    y_0 = Y - T * cate_pred
     y_1 = y_0 + cate_pred
 
     return y_0, y_1
 
-def get_risk_causal_ratio(y_0, y_1, event_threshold = 0.5):
+def get_risk_causal_ratio(y_0, y_1, T, event_threshold = 0.5):
 
     # Event indicator for the untreated group
     event_y0 = (y_0 >= event_threshold).astype(int)
@@ -36,10 +36,10 @@ def get_risk_relative_ratio(y_0, y_1):
     # Probability of the event occurring in the treated group
     prob_event_y1 = np.mean(y_1)
 
-    # Causal risk ratio
-    causal_risk_ratio = prob_event_y1 / prob_event_y0
+    # Relative risk ratio
+    relative_risk_ratio = prob_event_y1 / prob_event_y0
 
-    return causal_risk_ratio
+    return relative_risk_ratio
 
 def run_mbqip_risk(est, data_base_dir):
 
@@ -53,7 +53,7 @@ def run_mbqip_risk(est, data_base_dir):
         est.fit(y,t,X = x,W=None)
 
         y_0, y_1 = get_counterfactual_outcome(est, x, y, t)
-        risk = get_risk_causal_ratio(y_0, y_1)
+        risk = get_risk_relative_ratio(y_0, y_1)
 
         ans.append(risk)
 

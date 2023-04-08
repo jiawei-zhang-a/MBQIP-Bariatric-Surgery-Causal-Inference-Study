@@ -5,6 +5,8 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=40G
 #SBATCH --time=12:00:00
+#SBATCH --output=Logistic.out
+#SBATCH --error=Logistic.err
 
 module purge;
 

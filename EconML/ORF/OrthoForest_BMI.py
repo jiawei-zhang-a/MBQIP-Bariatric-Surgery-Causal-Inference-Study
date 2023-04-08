@@ -8,8 +8,7 @@ from sklearn.ensemble import RandomForestRegressor
 def main():
     PATH = "/scratch/jz4721/Observational-Study/data/mbqip/csv/BMI"
     est = DROrthoForest(model_Y = RandomForestRegressor())
-    ans = mbqip_utils.run_mbqip(PATH, est)
-    print(ans)
+    print(mbqip_utils.run_mbqip(est,PATH))
 
 if __name__ == '__main__':
     main()

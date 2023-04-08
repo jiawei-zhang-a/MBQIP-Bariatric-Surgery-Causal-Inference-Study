@@ -11,19 +11,19 @@ def main():
 
     print("SLearner")
     est = SLearner(overall_model=RandomForestRegressor())
-    mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI")
+    print(mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI"))
 
     print("TLearner")
     est = TLearner(models=RandomForestRegressor())
-    mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI")
+    print(mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI"))
 
     print("XLearner")
     est = XLearner(models=RandomForestRegressor(), cate_models=RandomForestRegressor())
-    mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI")
+    print(mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI"))
 
     print("DomainAdaptationLearner")
     est = DomainAdaptationLearner(models=RandomForestRegressor(), final_model=RandomForestRegressor())
-    mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI")
+    print(mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI"))
 
     
 if __name__ == '__main__':
