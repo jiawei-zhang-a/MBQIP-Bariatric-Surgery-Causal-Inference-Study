@@ -2,5 +2,4 @@ econml
 sklearn
 numpy
 pandas
-XGBoost
 ipdb

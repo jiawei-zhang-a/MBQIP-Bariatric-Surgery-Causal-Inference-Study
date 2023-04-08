@@ -8,6 +8,7 @@ import mbqip_risk_rate as mbqip_risk
 
 def main():
     PATH = "/scratch/jz4721/Observational-Study"
+    PATH = "/Users/jiaweizhang/med/Observational-Study/"
     print("\list \n(1)RYGB\n(2)Band\n(3)BPD-DS\n(4)SADI-S \nrelative treatment effect")
 
     print("\nDeath")

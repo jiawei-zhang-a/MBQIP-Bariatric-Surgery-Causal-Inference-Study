@@ -13,5 +13,5 @@ source /venv/bin/activate
 export PATH=/scratch/jz4721/Observational-Study/venv/lib64/python3.8/bin:$PATH
 source ~/.bashrc
 
-cd EconML/DR
-python DRLearner_BMI.py
+cd EconML/Meta-Learners
+python Meta-Learners_Logistic.py

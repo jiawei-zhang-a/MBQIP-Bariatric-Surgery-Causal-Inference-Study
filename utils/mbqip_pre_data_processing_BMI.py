@@ -2,9 +2,7 @@ import pandas as pd
 import numpy as np
 
 import os
-import sys
-sys.path.append('../data/mbqip')
-maindata = pd.DataFrame(pd.read_csv('all_bmi_main_data.csv'))
+maindata = pd.DataFrame(pd.read_csv('../data/mbqip/all_bmi_main_data.csv'))
 
 #anlysis before processing
 maindata_T = maindata.describe(include = 'all').T
