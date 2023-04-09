@@ -16,12 +16,12 @@ def main():
                             min_samples_leaf=10,
                             verbose=0,
                             min_weight_fraction_leaf=.005)
-    print(mbqip_utils.run_mbqip(est1, "/scratch/jz4721/Observational-Study/dat/mbqip/csv/BMI"))
+    print(mbqip_utils.run_mbqip(est1, "/scratch/jz4721/Observational-Study/data/mbqip/csv/BMI"))
 
     print("LinearDRLearner")
     est2 = LinearDRLearner(model_regression=RandomForestRegressor(),
                             model_propensity=RandomForestClassifier(min_samples_leaf=10))
-    print(mbqip_utils.run_mbqip(est2, "/scratch/jz4721/dragonnet/dat/mbqip/csv/BMI"))
+    print(mbqip_utils.run_mbqip(est2, "/scratch/jz4721/dragonnet/data/mbqip/csv/BMI"))
     
 if __name__ == '__main__':
     main()
