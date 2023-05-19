@@ -21,7 +21,6 @@ def load_all_other_crap(file_path):
 
 
 def run_mbqip(est, data_base_dir):
-
     simulation_files = sorted(glob.glob("{}/*.csv".format(data_base_dir)))
     ans = []
     for idx, simulation_file in enumerate(simulation_files):
@@ -31,5 +30,4 @@ def run_mbqip(est, data_base_dir):
 
         est.fit(y,t,X = x,W=None)
         ans.append((est.ate(x),est.ate_interval(x)))
-
     return ans

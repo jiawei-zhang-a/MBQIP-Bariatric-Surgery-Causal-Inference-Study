@@ -1,7 +1,6 @@
 from econml.dml import CausalForestDML
 from sklearn.ensemble import RandomForestRegressor
 from econml.metalearners import XLearner,TLearner,SLearner,DomainAdaptationLearner
-import xgboost as xgb
 import sys
 sys.path.append('../../utils')
 import mbqip_read_run as mbqip_utils

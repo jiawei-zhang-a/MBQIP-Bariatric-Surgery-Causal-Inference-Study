@@ -24,17 +24,6 @@ def main():
                             min_weight_fraction_leaf=.005)  
     print(mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death"))
 
-    print("LinearDRLearner")
-    est1 = LinearDRLearner(model_regression=RandomForestRegressor(),
-                            model_propensity=RandomForestClassifier(min_samples_leaf=10),
-                            cv=3,
-                            n_estimators=4000,
-                            min_samples_leaf=10,
-                            verbose=0,
-                            min_weight_fraction_leaf=.005)
-    print(mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death"))
-
-
     print("\nintervention")  
     print("ForestDRLearner")
     est2 = ForestDRLearner(model_regression=RandomForestRegressor(),
@@ -44,11 +33,6 @@ def main():
                             min_samples_leaf=10,
                             verbose=0,
                             min_weight_fraction_leaf=.005)      
-    print(mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention"))
-
-    print("LinearDRLearner")
-    est2 = LinearDRLearner(model_regression=RandomForestRegressor(),
-                            model_propensity=RandomForestClassifier(min_samples_leaf=10))
     print(mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention"))
 
     print("\nreadmission")
@@ -62,11 +46,6 @@ def main():
                             min_weight_fraction_leaf=.005)  
     print(mbqip_risk.run_mbqip_risk(est3,PATH + "/data/mbqip/csv/readmission"))
 
-    print("LinearDRLearner")
-    est3 = LinearDRLearner(model_regression=RandomForestRegressor(),
-                            model_propensity=RandomForestClassifier(min_samples_leaf=10))
-    print(mbqip_risk.run_mbqip_risk(est3,PATH + "/data/mbqip/csv/readmission"))
-
     print("\nreoperation")
     print("ForestDRLearner")
     est4 = ForestDRLearner(model_regression=RandomForestRegressor(),
@@ -78,11 +57,6 @@ def main():
                             min_weight_fraction_leaf=.005)  
     print(mbqip_risk.run_mbqip_risk(est4,PATH + "/data/mbqip/csv/reoperation"))
 
-    print("LinearDRLearner")
-    est4 = LinearDRLearner(model_regression=RandomForestRegressor(),
-                            model_propensity=RandomForestClassifier(min_samples_leaf=10))
-    print(mbqip_risk.run_mbqip_risk(est4,PATH + "/data/mbqip/csv/reoperation"))
-    
 if __name__ == '__main__':
     main()
 
