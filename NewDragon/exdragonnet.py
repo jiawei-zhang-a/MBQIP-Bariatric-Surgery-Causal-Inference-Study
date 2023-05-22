@@ -10,8 +10,14 @@ class EXdragonnet:
         y0_pred, y1_pred, t_pred, _ = self.model.predict(X)
 
         ate = np.mean(y1_pred - y0_pred)
-        
+
         return ate
+
+    def fit(self, y, t, X, W):
+        X_train = X
+        y_train = y
+        t_train = t
+        self.model.fit(X_train, y_train, t_train)
 
     # assuming y0_pred and y1_pred are numpy arrays
     def ate_interval(self, X, alpha = 0.95):
