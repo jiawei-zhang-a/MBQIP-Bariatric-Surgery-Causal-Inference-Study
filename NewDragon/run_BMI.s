@@ -8,7 +8,6 @@
 #SBATCH --output=BMI.out
 #SBATCH --error=BMI.err
 
-
 module purge;
 
 cd ..
