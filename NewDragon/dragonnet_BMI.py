@@ -1,6 +1,6 @@
 from sklearn.ensemble import RandomForestRegressor
 import sys
-sys.path.append('../../utils')
+sys.path.append('../utils')
 import mbqip_read_run as mbqip_utils
 from econml.dr import ForestDRLearner, LinearDRLearner
 from sklearn.ensemble import RandomForestClassifier

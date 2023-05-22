@@ -3,10 +3,9 @@ from econml.dml import CausalForestDML
 from sklearn.ensemble import RandomForestRegressor
 from dragonnet.dragonnet import DragonNet
 import sys
-sys.path.append('../../utils')
+sys.path.append('../utils')
 import mbqip_risk_rate as mbqip_risk
 from sklearn.ensemble import RandomForestRegressor
-sys.path.append('../../utils')
 from econml.dr import ForestDRLearner, LinearDRLearner
 from sklearn.ensemble import RandomForestClassifier
 from exdragonnet import EXdragonnet
