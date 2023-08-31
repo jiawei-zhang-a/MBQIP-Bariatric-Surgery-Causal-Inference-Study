@@ -9,7 +9,6 @@
 #SBATCH --mail-user=jz4721@nyu.edu
 #SBATCH --output=BMI.out
 #SBATCH --error=BMI.err
-#SBATCH --gres=gpu:1
 
 
 module purge;
