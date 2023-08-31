@@ -1,0 +1,22 @@
+\list 
+(1)RYGB
+(2)Band
+(3)BPD-DS
+(4)SADI-S \BMI treatment effect
+
+DragonNet
+epoch: 0--------- train_loss: 18.06595230102539
+epoch: 1--------- train_loss: 15.603073120117188
+epoch: 2--------- train_loss: 13.117483139038086
+epoch: 3--------- train_loss: 10.947502136230469
+epoch: 4--------- train_loss: 9.271379470825195
+epoch: 5--------- train_loss: 8.034425735473633
+epoch: 6--------- train_loss: 7.137419700622559
+epoch: 7--------- train_loss: 6.546478271484375
+epoch: 8--------- train_loss: 6.295849800109863
+epoch: 9--------- train_loss: 6.253561973571777
+epoch: 10--------- train_loss: 6.327798366546631
+epoch: 11--------- train_loss: 6.438520431518555
+epoch: 12--------- train_loss: 6.569679260253906
+epoch: 13--------- train_loss: 6.64833927154541
+epoch: 14--------- train_loss: 6.676933288574219
