@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=DNN
+#SBATCH --job-name=DNN-BMI
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=40
 #SBATCH --ntasks-per-node=1
@@ -9,6 +9,8 @@
 #SBATCH --mail-user=jz4721@nyu.edu
 #SBATCH --output=BMI.out
 #SBATCH --error=BMI.err
+#SBATCH --gres=gpu:1
+
 
 module purge;
 

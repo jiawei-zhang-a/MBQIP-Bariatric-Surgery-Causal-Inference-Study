@@ -2,7 +2,7 @@ import numpy as np
 import glob
 from dragonnet.dragonnet import DragonNet
 from exdragonnet import EXdragonnet
-
+import torch
 
 def load_and_format_covariates_mbqip(file_path):
 
@@ -30,8 +30,10 @@ def run_mbqip(data_base_dir):
 
         x = load_and_format_covariates_mbqip(simulation_file)
         t, y = load_all_other_crap(simulation_file)
-        
+        # Check if GPU is available
         model = DragonNet(x.shape[1])
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        model.to(device)
         est = EXdragonnet(model)
         est.fit(y,t,X = x)
         ans.append((est.ate(x),est.ate_interval(x)))

@@ -3,6 +3,7 @@ import glob
 import mbqip_read_run
 from dragonnet.dragonnet import DragonNet
 from exdragonnet import EXdragonnet
+import torch
 
 
 def get_counterfactual_outcome (est,X, Y, T):
@@ -54,8 +55,11 @@ def run_mbqip_risk(data_base_dir):
         t, y = mbqip_read_run.load_all_other_crap(simulation_file)
 
         model = DragonNet(x.shape[1])
+        device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        model.to(device)
         est = EXdragonnet(model)
         est.fit(y,t,X = x)
+        ans.append((est.ate(x),est.ate_interval(x)))
 
         y_0, y_1 = get_counterfactual_outcome(est, x, y, t)
         risk = get_risk_relative_ratio(y_0, y_1)
