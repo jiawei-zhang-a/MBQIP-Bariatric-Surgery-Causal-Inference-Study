@@ -4,7 +4,7 @@
 #SBATCH --cpus-per-task=40
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=40G
-#SBATCH --time=30:00:00
+#SBATCH --time=79:00:00
 #SBATCH --mail-type=END
 #SBATCH --mail-user=jz4721@nyu.edu
 #SBATCH --output=BMI.out
