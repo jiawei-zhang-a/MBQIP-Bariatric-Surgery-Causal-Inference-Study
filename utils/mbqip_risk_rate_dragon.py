@@ -55,7 +55,7 @@ def run_mbqip_risk(data_base_dir):
 
         model = DragonNet(x.shape[1])
         est = EXdragonnet(model)
-        est.fit(x, y, t)
+        est.fit(y,t,X = x)
 
         y_0, y_1 = get_counterfactual_outcome(est, x, y, t)
         risk = get_risk_relative_ratio(y_0, y_1)

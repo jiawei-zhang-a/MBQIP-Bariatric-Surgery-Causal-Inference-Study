@@ -33,6 +33,6 @@ def run_mbqip(data_base_dir):
         
         model = DragonNet(x.shape[1])
         est = EXdragonnet(model)
-        est.fit(x, y, t)
+        est.fit(y,t,X = x)
         ans.append((est.ate(x),est.ate_interval(x)))
     return ans
