@@ -3,4 +3,4 @@ scikit-learn
 numpy
 pandas
 ipdb
-torch~=1.12
+torch
