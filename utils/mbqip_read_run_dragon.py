@@ -2,6 +2,7 @@ import numpy as np
 import glob
 from dragonnet.dragonnet import DragonNet
 from exdragonnet import EXdragonnet
+import torch
 from torch import cuda
 
 def load_and_format_covariates_mbqip(file_path):
