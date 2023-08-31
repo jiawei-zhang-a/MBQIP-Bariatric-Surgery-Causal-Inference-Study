@@ -17,22 +17,23 @@ def main():
     print("\list \n(1)RYGB\n(2)Band\n(3)BPD-DS\n(4)SADI-S \nrelative treatment effect")
 
     print("\nDeath")
-    print("ForestDRLearner")
-    est1 = EXdragonnet(DragonNet)
+    print("DragonNet")
+    model = DragonNet(X.shape[1])
+    est1 = EXdragonnet(model)
     print(mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death"))
 
     print("\nintervention")  
-    print("ForestDRLearner")
+    print("DragonNet")
     est2 = EXdragonnet(DragonNet)    
     print(mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention"))
 
     print("\nreadmission")
-    print("ForestDRLearner")
+    print("DragonNet")
     est3 = EXdragonnet(DragonNet)
     print(mbqip_risk.run_mbqip_risk(est3,PATH + "/data/mbqip/csv/readmission"))
 
     print("\nreoperation")
-    print("ForestDRLearner")
+    print("DragonNet")
     est4 = EXdragonnet(DragonNet)
     print(mbqip_risk.run_mbqip_risk(est4,PATH + "/data/mbqip/csv/reoperation"))
 

@@ -23,7 +23,6 @@ maindata['AGE'] = maindata[['AGE']].apply(standard_scaler)
 #extract five catogry
 Sleeve = maindata.dropna(subset = ['Sleeve']) #treated as t = 0
 Sleeve["treament"] = 0
-
 RYGB = maindata.dropna(subset = ['RYGB'])
 RYGB["treament"] = 1
 Band = maindata.dropna(subset = ['Band'])
