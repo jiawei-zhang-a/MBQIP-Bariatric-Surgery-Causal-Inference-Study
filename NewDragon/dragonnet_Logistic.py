@@ -4,12 +4,7 @@ from sklearn.ensemble import RandomForestRegressor
 from dragonnet.dragonnet import DragonNet
 import sys
 sys.path.append('../utils')
-import mbqip_risk_rate as mbqip_risk
-from sklearn.ensemble import RandomForestRegressor
-from econml.dr import ForestDRLearner, LinearDRLearner
-from sklearn.ensemble import RandomForestClassifier
-from exdragonnet import EXdragonnet
-from dragonnet.dragonnet import DragonNet
+import mbqip_risk_rate_dragon as mbqip_risk
 
 
 def main():
@@ -18,24 +13,19 @@ def main():
 
     print("\nDeath")
     print("DragonNet")
-    model = DragonNet(X.shape[1])
-    est1 = EXdragonnet(model)
-    print(mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death"))
+    print(mbqip_risk.run_mbqip_risk(PATH + "/data/mbqip/csv/Death"))
 
     print("\nintervention")  
     print("DragonNet")
-    est2 = EXdragonnet(DragonNet)    
-    print(mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention"))
+    print(mbqip_risk.run_mbqip_risk(PATH + "/data/mbqip/csv/intervention"))
 
     print("\nreadmission")
     print("DragonNet")
-    est3 = EXdragonnet(DragonNet)
-    print(mbqip_risk.run_mbqip_risk(est3,PATH + "/data/mbqip/csv/readmission"))
+    print(mbqip_risk.run_mbqip_risk(PATH + "/data/mbqip/csv/readmission"))
 
     print("\nreoperation")
     print("DragonNet")
-    est4 = EXdragonnet(DragonNet)
-    print(mbqip_risk.run_mbqip_risk(est4,PATH + "/data/mbqip/csv/reoperation"))
+    print(mbqip_risk.run_mbqip_risk(PATH + "/data/mbqip/csv/reoperation"))
 
 if __name__ == '__main__':
     main()
