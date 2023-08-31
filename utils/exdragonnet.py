@@ -13,7 +13,7 @@ class EXdragonnet:
 
         return ate
 
-    def fit(self, y, t, X, W):
+    def fit(self, y, t, X):
         X_train = X
         y_train = y
         t_train = t
