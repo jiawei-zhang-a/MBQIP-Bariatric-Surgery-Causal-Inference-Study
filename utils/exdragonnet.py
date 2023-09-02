@@ -9,7 +9,10 @@ class EXdragonnet:
 
         y0_pred, y1_pred, t_pred, _ = self.model.predict(X)
 
-        ate = np.mean(y1_pred - y0_pred)
+        y1_pred_np = y1_pred.detach().cpu().numpy()
+        y0_pred_np = y0_pred.detach().cpu().numpy()
+
+        ate = np.mean(y1_pred_np - y0_pred_np)
 
         return ate
 
@@ -24,8 +27,11 @@ class EXdragonnet:
 
         y0_pred, y1_pred, t_pred, _ = self.model.predict(X)
 
+        y1_pred_np = y1_pred.detach().cpu().numpy()
+        y0_pred_np = y0_pred.detach().cpu().numpy()
+
         # Calculate ITE
-        ite = y1_pred - y0_pred
+        ite = y1_pred_np - y0_pred_np
 
         # Calculate ATE
         ate = np.mean(ite)
