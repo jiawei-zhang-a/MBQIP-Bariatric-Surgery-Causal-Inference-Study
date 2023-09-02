@@ -7,6 +7,8 @@
 #SBATCH --time=12:00:00
 #SBATCH --output=BMI.out
 #SBATCH --error=BMI.err
+#SBATCH --mail-type=END
+#SBATCH --mail-user=jz4721@nyu.edu
 
 module purge;
 
