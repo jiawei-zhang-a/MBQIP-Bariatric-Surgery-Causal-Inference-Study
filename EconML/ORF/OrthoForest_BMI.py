@@ -10,7 +10,6 @@ from sklearn.ensemble import RandomForestClassifier
 def main():
     est = DROrthoForest(
         model_Y=RandomForestRegressor(),
-        model_T=RandomForestClassifier(),
         propensity_model=RandomForestClassifier(),
         model_Y_final=RandomForestRegressor(),
         propensity_model_final=RandomForestClassifier(),
