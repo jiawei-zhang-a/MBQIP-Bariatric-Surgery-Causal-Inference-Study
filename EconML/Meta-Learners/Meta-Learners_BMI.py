@@ -21,7 +21,7 @@ def main():
     #print(mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/data/mbqip/csv/BMI"))
 
     print("DomainAdaptationLearner")
-    est = DomainAdaptationLearner(models=RandomForestRegressor(), final_model=RandomForestRegressor())
+    est = DomainAdaptationLearner(models=RandomForestRegressor())
     print(mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/data/mbqip/csv/BMI"))
 
     
