@@ -3,7 +3,7 @@
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=10
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=60G
+#SBATCH --mem=500G
 #SBATCH --time=12:00:00
 #SBATCH --output=BMI.out
 #SBATCH --error=BMI.err

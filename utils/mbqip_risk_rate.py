@@ -1,6 +1,7 @@
 import numpy as np
 import glob 
 import mbqip_read_run
+import os
 
 def get_counterfactual_outcome (est,X, Y, T):
 
@@ -54,6 +55,8 @@ def run_mbqip_risk(est, data_base_dir):
 
         y_0, y_1 = get_counterfactual_outcome(est, x, y, t)
         risk = get_risk_relative_ratio(y_0, y_1)
+        os.mkdir(data_base_dir + "")
+
 
         ans.append(risk)
 
