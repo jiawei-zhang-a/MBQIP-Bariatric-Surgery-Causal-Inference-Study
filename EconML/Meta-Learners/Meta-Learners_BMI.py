@@ -4,6 +4,7 @@ from econml.metalearners import XLearner,TLearner,SLearner,DomainAdaptationLearn
 import sys
 sys.path.append('../../utils')
 import mbqip_read_run as mbqip_utils
+import lightgbm as lgb
 
 def main():
     print("\list \n(1)RYGB\n(2)Band\n(3)BPD-DS\n(4)SADI-S \BMI treatment effect\n")

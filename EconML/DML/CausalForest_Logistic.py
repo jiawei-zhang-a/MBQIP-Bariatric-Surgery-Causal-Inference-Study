@@ -6,6 +6,7 @@ sys.path.append('../../utils')
 import mbqip_risk_rate as mbqip_risk
 import os
 import mbqip_bootstrap as mbqip_bootstrap
+import lightgbm as lgb
 
 
 def main():
@@ -20,40 +21,49 @@ def main():
         os.mkdir("Result")
 
     est1 = CausalForestDML(model_y=RandomForestRegressor(),
-                        model_t=RandomForestRegressor(),
-                        criterion='mse', n_estimators=1000,
-                        min_impurity_decrease=0.001,
-                        random_state=123)   
+                        model_t=RandomForestRegressor())   
     est2 = CausalForestDML(model_y=RandomForestRegressor(),
-                        model_t=RandomForestRegressor(),
-                        criterion='mse', n_estimators=1000,
-                        min_impurity_decrease=0.001,
-                        random_state=123)   
+                        model_t=RandomForestRegressor())   
     est3 = CausalForestDML(model_y=RandomForestRegressor(),
-                        model_t=RandomForestRegressor(),
-                        criterion='mse', n_estimators=1000,
-                        min_impurity_decrease=0.001,
-                        random_state=123)   
+                        model_t=RandomForestRegressor())   
     est4 = CausalForestDML(model_y=RandomForestRegressor(),
-                        model_t=RandomForestRegressor(),
-                        criterion='mse', n_estimators=1000,
-                        min_impurity_decrease=0.001,
-                        random_state=123)       
+                        model_t=RandomForestRegressor())       
 
     PATH = "/scratch/jz4721/Observational-Study"
     print("\list \n(1)RYGB\n(2)Band\n(3)BPD-DS\n(4)SADI-S \nrelative treatment effect")
-    print("\nBMI")
-    mbqip_bootstrap.bootstrap(est1, PATH + "/data/mbqip/csv/Death", "Death", task_id)
+    print("causal forest with random forest")
+    mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death", "Death", task_id)
 
     print("\nintervention")    
-    mbqip_bootstrap.bootstrap(est2, PATH + "/data/mbqip/csv/intervention", "intervention", task_id)
+    mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention", "intervention", task_id)
 
     print("\nreadmission") 
-    mbqip_bootstrap.bootstrap(est3, PATH + "/data/mbqip/csv/readmission", "readmission", task_id)
+    mbqip_risk.run_mbqip_risk(est3, PATH + "/data/mbqip/csv/readmission", "readmission", task_id)
 
     print("\nreoperation") 
-    mbqip_bootstrap.bootstrap(est4, PATH + "/data/mbqip/csv/reoperation", "reoperation", task_id)
+    mbqip_risk.run_mbqip_risk(est4, PATH + "/data/mbqip/csv/reoperation", "reoperation", task_id)
     
+    print("\ncausal forest with lightgbm")
+    est1 = CausalForestDML(model_y=lgb.LGBMRegressor(),
+                        model_t=lgb.LGBMRegressor())
+    est2 = CausalForestDML(model_y=lgb.LGBMRegressor(),
+                        model_t=lgb.LGBMRegressor())
+    est3 = CausalForestDML(model_y=lgb.LGBMRegressor(),
+                        model_t=lgb.LGBMRegressor())
+    est4 = CausalForestDML(model_y=lgb.LGBMRegressor(),
+                        model_t=lgb.LGBMRegressor())
+    mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death", "Death", task_id)
+
+    print("\nintervention")    
+    mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention", "intervention", task_id)
+
+    print("\nreadmission") 
+    mbqip_risk.run_mbqip_risk(est3, PATH + "/data/mbqip/csv/readmission", "readmission", task_id)
+
+    print("\nreoperation") 
+    mbqip_risk.run_mbqip_risk(est4, PATH + "/data/mbqip/csv/reoperation", "reoperation", task_id)
+    
+
 
 if __name__ == '__main__':
     main()

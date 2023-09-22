@@ -4,6 +4,7 @@ from sklearn.ensemble import RandomForestRegressor
 import sys
 sys.path.append('../../utils')
 import mbqip_risk_rate as mbqip_risk
+import lightgbm as lgb
 
 
 def main():

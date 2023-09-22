@@ -8,6 +8,8 @@ from sklearn.ensemble import RandomForestRegressor
 sys.path.append('../../utils')
 from econml.dr import ForestDRLearner, LinearDRLearner
 from sklearn.ensemble import RandomForestClassifier
+import lightgbm as lgb
+
 
 def main():
     PATH = "/scratch/jz4721/Observational-Study"
@@ -15,46 +17,26 @@ def main():
 
     print("\nDeath")
     print("ForestDRLearner")
-    est1 = ForestDRLearner(model_regression=RandomForestRegressor(),
-                            model_propensity=RandomForestClassifier(min_samples_leaf=10),
-                            cv=3,
-                            n_estimators=4000,
-                            min_samples_leaf=10,
-                            verbose=0,
-                            min_weight_fraction_leaf=.005)  
+    est1 = ForestDRLearner(model_regression=lgb.LGBMRegressor(),
+                            model_propensity=lgb.LGBMClassifier())  
     print(mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death"))
 
     print("\nintervention")  
     print("ForestDRLearner")
-    est2 = ForestDRLearner(model_regression=RandomForestRegressor(),
-                            model_propensity=RandomForestClassifier(min_samples_leaf=10),
-                            cv=3,
-                            n_estimators=4000,
-                            min_samples_leaf=10,
-                            verbose=0,
-                            min_weight_fraction_leaf=.005)      
+    est2 = ForestDRLearner(model_regression=lgb.LGBMRegressor(),
+                            model_propensity=lgb.LGBMClassifier())      
     print(mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention"))
 
     print("\nreadmission")
     print("ForestDRLearner")
-    est3 = ForestDRLearner(model_regression=RandomForestRegressor(),
-                            model_propensity=RandomForestClassifier(min_samples_leaf=10),
-                            cv=3,
-                            n_estimators=4000,
-                            min_samples_leaf=10,
-                            verbose=0,
-                            min_weight_fraction_leaf=.005)  
+    est3 = ForestDRLearner(model_regression=lgb.LGBMRegressor(),
+                            model_propensity=lgb.LGBMClassifier())   
     print(mbqip_risk.run_mbqip_risk(est3,PATH + "/data/mbqip/csv/readmission"))
 
     print("\nreoperation")
     print("ForestDRLearner")
-    est4 = ForestDRLearner(model_regression=RandomForestRegressor(),
-                            model_propensity=RandomForestClassifier(min_samples_leaf=10),
-                            cv=3,
-                            n_estimators=4000,
-                            min_samples_leaf=10,
-                            verbose=0,
-                            min_weight_fraction_leaf=.005)  
+    est4 = ForestDRLearner(model_regression=lgb.LGBMRegressor(),
+                            model_propensity=lgb.LGBMClassifier())  
     print(mbqip_risk.run_mbqip_risk(est4,PATH + "/data/mbqip/csv/reoperation"))
 
 if __name__ == '__main__':
