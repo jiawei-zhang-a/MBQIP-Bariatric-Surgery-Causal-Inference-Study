@@ -23,16 +23,16 @@ def main():
     PATH = "/scratch/jz4721/Observational-Study"
     print("\list \n(1)RYGB\n(2)Band\n(3)BPD-DS\n(4)SADI-S \nrelative treatment effect")
     print("causal forest with random forest")
-    mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death", "Death", task_id)
+    mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death", "Death")
 
     print("\nintervention")    
-    mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention", "intervention", task_id)
+    mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention", "intervention")
 
     print("\nreadmission") 
-    mbqip_risk.run_mbqip_risk(est3, PATH + "/data/mbqip/csv/readmission", "readmission", task_id)
+    mbqip_risk.run_mbqip_risk(est3, PATH + "/data/mbqip/csv/readmission", "readmission")
 
     print("\nreoperation") 
-    mbqip_risk.run_mbqip_risk(est4, PATH + "/data/mbqip/csv/reoperation", "reoperation", task_id)
+    mbqip_risk.run_mbqip_risk(est4, PATH + "/data/mbqip/csv/reoperation", "reoperation")
     
     print("\ncausal forest with lightgbm")
     est1 = CausalForestDML(model_y=lgb.LGBMRegressor(),
@@ -43,16 +43,16 @@ def main():
                         model_t=lgb.LGBMRegressor())
     est4 = CausalForestDML(model_y=lgb.LGBMRegressor(),
                         model_t=lgb.LGBMRegressor())
-    mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death", "Death", task_id)
+    mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death", "Death")
 
     print("\nintervention")    
-    mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention", "intervention", task_id)
+    mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention", "intervention")
 
     print("\nreadmission") 
-    mbqip_risk.run_mbqip_risk(est3, PATH + "/data/mbqip/csv/readmission", "readmission", task_id)
+    mbqip_risk.run_mbqip_risk(est3, PATH + "/data/mbqip/csv/readmission", "readmission")
 
     print("\nreoperation") 
-    mbqip_risk.run_mbqip_risk(est4, PATH + "/data/mbqip/csv/reoperation", "reoperation", task_id)
+    mbqip_risk.run_mbqip_risk(est4, PATH + "/data/mbqip/csv/reoperation", "reoperation")
     
 
 
