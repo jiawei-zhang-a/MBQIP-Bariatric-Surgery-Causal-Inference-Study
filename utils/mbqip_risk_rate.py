@@ -71,7 +71,6 @@ def run_mbqip_risk(est, data_base_dir):
 
         n = len(y_0)
         CI = get_risk_confidence_interval(y_0, y_1, n)
-        os.mkdir(data_base_dir + "")
         ans.append((risk,CI))
 
     return ans
