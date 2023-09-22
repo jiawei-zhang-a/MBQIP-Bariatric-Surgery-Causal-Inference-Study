@@ -11,15 +11,6 @@ import lightgbm as lgb
 
 def main():
 
-    if len(sys.argv) == 2:
-        task_id = int(sys.argv[1])
-    else:
-        print("Please add the job number like this\nEx.python CausalForest_logistic.py 1")
-        exit()
-
-    if os.path.exists("Result") == False:
-        os.mkdir("Result")
-
     est1 = CausalForestDML(model_y=RandomForestRegressor(),
                         model_t=RandomForestRegressor())   
     est2 = CausalForestDML(model_y=RandomForestRegressor(),
