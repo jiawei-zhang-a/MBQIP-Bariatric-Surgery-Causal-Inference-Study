@@ -1,4 +1,6 @@
 #!/bin/bash
+#!/bin/bash
+
 #SBATCH --job-name=DR_Logistic
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=40
