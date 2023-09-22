@@ -6,3 +6,4 @@ ipdb
 torch
 lightgbm
 stats
+xgboost

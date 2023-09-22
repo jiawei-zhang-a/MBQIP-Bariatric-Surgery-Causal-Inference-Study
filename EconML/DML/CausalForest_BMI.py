@@ -4,6 +4,7 @@ import sys
 sys.path.append('../../utils')
 import mbqip_read_run as mbqip_utils
 import lightgbm as lgb
+import xgboost as xgb
 
 
 def main():
@@ -22,6 +23,13 @@ def main():
                         model_t=lgb.LGBMRegressor(),
     )
     print(mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/data/mbqip/csv/BMI"))
+
+    print("CausalForestDML with xgboost")
+    est = CausalForestDML(model_y=xgb.XGBRegressor(),
+                        model_t=xgb.XGBRegressor(),
+    )
+    print(mbqip_utils.run_mbqip(est,"/scratch/jz4721/Observational-Study/data/mbqip/csv/BMI"))
+
 if __name__ == '__main__':
 
     main()

@@ -49,7 +49,8 @@ def get_risk_confidence_interval(y_0, y_1, alpha=0.05):
     
     # Confidence interval calculation
     z_value = stats.norm.ppf(1 - alpha / 2)
-    log_CI = np.log(relative_risk_ratio) + np.array([-1, 1]) * z_value * SE
+    log_CI = [np.log(relative_risk_ratio) + -1 * z_value * SE, np.log(relative_risk_ratio) + z_value * SE]
+    log_CI = np.array(log_CI)
     CI = np.exp(log_CI)
     
     return CI

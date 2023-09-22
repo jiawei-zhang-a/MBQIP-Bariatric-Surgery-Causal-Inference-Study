@@ -9,14 +9,36 @@ sys.path.append('../../utils')
 from econml.dr import ForestDRLearner, LinearDRLearner
 from sklearn.ensemble import RandomForestClassifier
 import lightgbm as lgb
-
+import xgboost as xgb
 
 def main():
     PATH = "/scratch/jz4721/Observational-Study"
     print("\list \n(1)RYGB\n(2)Band\n(3)BPD-DS\n(4)SADI-S \nrelative treatment effect")
-
+    print("ForestDRLearner with random forest")
     print("\nDeath")
-    print("ForestDRLearner")
+    est1 = ForestDRLearner(model_regression=RandomForestRegressor(),
+                            model_propensity=RandomForestClassifier())
+    print(mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death"))
+    
+    print("\nintervention")
+    est2 = ForestDRLearner(model_regression=RandomForestRegressor(),
+                            model_propensity=RandomForestClassifier())
+    print(mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention"))
+
+    print("\nreadmission")
+    est3 = ForestDRLearner(model_regression=RandomForestRegressor(),
+                            model_propensity=RandomForestClassifier())
+    print(mbqip_risk.run_mbqip_risk(est3,PATH + "/data/mbqip/csv/readmission"))
+
+    print("\nreoperation")
+    est4 = ForestDRLearner(model_regression=RandomForestRegressor(),
+                            model_propensity=RandomForestClassifier())
+    print(mbqip_risk.run_mbqip_risk(est4,PATH + "/data/mbqip/csv/reoperation"))
+
+
+    print("ForestDRLearner with lgbm")
+    print("\nDeath")
+    print("ForestDRLearner + ")
     est1 = ForestDRLearner(model_regression=lgb.LGBMRegressor(),
                             model_propensity=lgb.LGBMClassifier())  
     print(mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death"))
@@ -38,6 +60,29 @@ def main():
     est4 = ForestDRLearner(model_regression=lgb.LGBMRegressor(),
                             model_propensity=lgb.LGBMClassifier())  
     print(mbqip_risk.run_mbqip_risk(est4,PATH + "/data/mbqip/csv/reoperation"))
+
+    print("ForestDRLearner with xgboost")
+    print("\nDeath")
+    est1 = ForestDRLearner(model_regression=xgb.XGBRegressor(),
+                            model_propensity=xgb.XGBClassifier())
+    print(mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death"))
+
+    print("\nintervention")
+    est2 = ForestDRLearner(model_regression=xgb.XGBRegressor(),
+                            model_propensity=xgb.XGBClassifier())
+    print(mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention"))
+
+    print("\nreadmission")
+    est3 = ForestDRLearner(model_regression=xgb.XGBRegressor(),
+                            model_propensity=xgb.XGBClassifier())
+    print(mbqip_risk.run_mbqip_risk(est3, PATH + "/data/mbqip/csv/readmission"))
+
+    print("\nreoperation")
+    est4 = ForestDRLearner(model_regression=xgb.XGBRegressor(),
+                            model_propensity=xgb.XGBClassifier())
+    print(mbqip_risk.run_mbqip_risk(est4, PATH + "/data/mbqip/csv/reoperation"))
+
+
 
 if __name__ == '__main__':
     main()
