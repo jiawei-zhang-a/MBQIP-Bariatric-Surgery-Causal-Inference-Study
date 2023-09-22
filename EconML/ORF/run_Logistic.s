@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=ORF
+#SBATCH --job-name=ORF_Logistic
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=10
 #SBATCH --ntasks-per-node=1
