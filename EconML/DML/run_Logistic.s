@@ -5,8 +5,9 @@
 #SBATCH --ntasks-per-node=1
 #SBATCH --mem=40G
 #SBATCH --time=70:00:00
-#SBATCH --output=Runtime/%a.out
-#SBATCH --error=Runtime/%a.err
+#SBATCH --output=.out
+#SBATCH --output=Logistic.out
+#SBATCH --error=Logistic.err
 #SBATCH --mail-type=END
 #SBATCH --mail-user=jz4721@nyu.edu
 
