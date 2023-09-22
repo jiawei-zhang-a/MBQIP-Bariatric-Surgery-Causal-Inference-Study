@@ -45,7 +45,7 @@ def get_risk_confidence_interval(y_0, y_1, alpha=0.05):
     relative_risk_ratio = get_risk_causal_relative_ratio(y_0, y_1)
     
     # Standard error calculation
-    SE = np.sqrt((1 / x1) + (1 / x0) - (1 / (n1 - x1)) - (1 / (n0 - x0)))
+    SE = np.sqrt((1 / x1) + (1 / x0) - (1 / (n1)) - (1 / (n0)))
     
     # Confidence interval calculation
     z_value = stats.norm.ppf(1 - alpha / 2)
