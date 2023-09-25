@@ -19,36 +19,28 @@ def main():
     print("\nDeath")
     est1 = DROrthoForest(
         model_Y=RandomForestRegressor(),
-        propensity_model=RandomForestClassifier(),
         model_Y_final=RandomForestRegressor(),
-        propensity_model_final=RandomForestClassifier(),
     )
     print(mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death"))
 
     print("\nintervention")    
     est2 = DROrthoForest(
         model_Y=RandomForestRegressor(),
-        propensity_model=RandomForestClassifier(),
         model_Y_final=RandomForestRegressor(),
-        propensity_model_final=RandomForestClassifier(),
     )
     print(mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention"))
 
     print("\nreadmission")
     est3 = DROrthoForest(
         model_Y=RandomForestRegressor(),
-        propensity_model=RandomForestClassifier(),
         model_Y_final=RandomForestRegressor(),
-        propensity_model_final=RandomForestClassifier(),
     )
     print(mbqip_risk.run_mbqip_risk(est3,PATH + "/data/mbqip/csv/readmission"))
 
     print("\nreoperation")
     est4 = DROrthoForest(
         model_Y=RandomForestRegressor(),
-        propensity_model=RandomForestClassifier(),
         model_Y_final=RandomForestRegressor(),
-        propensity_model_final=RandomForestClassifier(),
     )
     print(mbqip_risk.run_mbqip_risk(est4,PATH + "/data/mbqip/csv/reoperation"))
     
@@ -56,18 +48,14 @@ def main():
     print("\nDeath")
     est1 = DROrthoForest(
         model_Y=lgb.LGBMRegressor(),
-        propensity_model=lgb.LGBMClassifier(),
         model_Y_final=lgb.LGBMRegressor(),
-        propensity_model_final=lgb.LGBMClassifier(),
     )
     print(mbqip_risk.run_mbqip_risk(est1, PATH + "/data/mbqip/csv/Death"))
 
     print("\nintervention")
     est2 = DROrthoForest(
         model_Y=lgb.LGBMRegressor(),
-        propensity_model=lgb.LGBMClassifier(),
         model_Y_final=lgb.LGBMRegressor(),
-        propensity_model_final=lgb.LGBMClassifier(),
     )
 
     print(mbqip_risk.run_mbqip_risk(est2, PATH + "/data/mbqip/csv/intervention"))
@@ -75,9 +63,7 @@ def main():
     print("\nreadmission")
     est3 = DROrthoForest(
         model_Y=lgb.LGBMRegressor(),
-        propensity_model=lgb.LGBMClassifier(),
         model_Y_final=lgb.LGBMRegressor(),
-        propensity_model_final=lgb.LGBMClassifier(),
     )
 
     print(mbqip_risk.run_mbqip_risk(est3,PATH + "/data/mbqip/csv/readmission"))
@@ -85,9 +71,7 @@ def main():
     print("\nreoperation")
     est4 = DROrthoForest(
         model_Y=lgb.LGBMRegressor(),
-        propensity_model=lgb.LGBMClassifier(),
         model_Y_final=lgb.LGBMRegressor(),
-        propensity_model_final=lgb.LGBMClassifier(),
     )
 
     print(mbqip_risk.run_mbqip_risk(est4,PATH + "/data/mbqip/csv/reoperation"))
