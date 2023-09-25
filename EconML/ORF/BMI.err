@@ -495,3 +495,5 @@ The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. T
 [Parallel(n_jobs=-1)]: Done 268 tasks      | elapsed: 226.1min
 [Parallel(n_jobs=-1)]: Done 500 out of 500 | elapsed: 420.1min finished
 [Parallel(n_jobs=-1)]: Using backend LokyBackend with 10 concurrent workers.
+/opt/slurm/data/slurmd/job37957505/slurm_script: line 22: 979893 Killed                  python OrthoForest_BMI.py
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=37957505.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.

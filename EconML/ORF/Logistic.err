@@ -484,13 +484,15 @@ The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. T
   def lower_credit(i, value, M, values, clustering):
 The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
 The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
-[Parallel(n_jobs=-1)]: Done  12 tasks      | elapsed:  9.1min
-[Parallel(n_jobs=-1)]: Done 108 tasks      | elapsed: 51.3min
-[Parallel(n_jobs=-1)]: Done 268 tasks      | elapsed: 125.4min
-[Parallel(n_jobs=-1)]: Done 500 out of 500 | elapsed: 232.1min finished
-[Parallel(n_jobs=-1)]: Using backend LokyBackend with 10 concurrent workers.
 [Parallel(n_jobs=-1)]: Done  12 tasks      | elapsed:  9.3min
-[Parallel(n_jobs=-1)]: Done 108 tasks      | elapsed: 50.9min
-[Parallel(n_jobs=-1)]: Done 268 tasks      | elapsed: 125.8min
-[Parallel(n_jobs=-1)]: Done 500 out of 500 | elapsed: 235.7min finished
+[Parallel(n_jobs=-1)]: Done 108 tasks      | elapsed: 52.2min
+[Parallel(n_jobs=-1)]: Done 268 tasks      | elapsed: 127.0min
+[Parallel(n_jobs=-1)]: Done 500 out of 500 | elapsed: 236.1min finished
 [Parallel(n_jobs=-1)]: Using backend LokyBackend with 10 concurrent workers.
+[Parallel(n_jobs=-1)]: Done  12 tasks      | elapsed:  9.5min
+[Parallel(n_jobs=-1)]: Done 108 tasks      | elapsed: 53.9min
+[Parallel(n_jobs=-1)]: Done 268 tasks      | elapsed: 130.9min
+[Parallel(n_jobs=-1)]: Done 500 out of 500 | elapsed: 239.9min finished
+[Parallel(n_jobs=-1)]: Using backend LokyBackend with 10 concurrent workers.
+/opt/slurm/data/slurmd/job37998622/slurm_script: line 21: 1399817 Killed                  python OrthoForest_Logistic.py
+slurmstepd: error: Detected 2 oom-kill event(s) in StepId=37998622.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.
