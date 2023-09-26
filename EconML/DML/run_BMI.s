@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=DML_Logistic
+#SBATCH --job-name=DML_BMI
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=40
 #SBATCH --ntasks-per-node=1

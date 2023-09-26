@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=Meta-Learners
+#SBATCH --job-name=Meta-Learners_Logistic
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=40
 #SBATCH --ntasks-per-node=1
