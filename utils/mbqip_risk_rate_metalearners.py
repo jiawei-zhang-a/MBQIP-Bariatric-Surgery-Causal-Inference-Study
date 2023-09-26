@@ -7,10 +7,9 @@ import scipy.stats as stats
 def get_counterfactual_outcome (est,X, Y, T):
 
     # Get the counterfactual outcome for each sample
-    cate_pred = est.effect(X)
-    y_0 = Y - T * cate_pred
-    y_1 = y_0 + cate_pred
-
+    const_marginal_effects = est.const_marginal_effect(X)
+    y_0 = const_marginal_effects[:, 0]
+    y_1 = const_marginal_effects[:, 1]
     return y_0, y_1
 
 def get_risk_causal_relative_ratio(y_0, y_1):
@@ -69,10 +68,10 @@ def run_mbqip_risk(est, data_base_dir):
 
         y_0, y_1 = get_counterfactual_outcome(est, x, y, t)
         #risk = get_risk_causal_relative_ratio(y_0, y_1)
-
         np.savez('result.npz', y_0=y_0, y_1=y_1)
 
 
         ans.append("Finished simulation")
+
     return ans
 

@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=DML_Logistic
+#SBATCH --job-name=CausalDML_Logistic
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=40
 #SBATCH --ntasks-per-node=1
@@ -18,4 +18,4 @@ export PATH=/scratch/jz4721/Observational-Study/venv/lib64/python3.8/bin:$PATH
 source ~/.bashrc
 
 cd EconML/DML
-python DML_BMI.py
+python CausalForest_BMI.py

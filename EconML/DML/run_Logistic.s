@@ -18,5 +18,5 @@ export PATH=/scratch/jz4721/Observational-Study/venv/lib64/python3.8/bin:$PATH
 source ~/.bashrc
 
 cd EconML/DML
-python CausalForest_Logistic.py 
+python DML_Logistic.py 
 
