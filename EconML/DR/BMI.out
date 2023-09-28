@@ -5,120 +5,120 @@
 (4)SADI-S \BMI treatment effect
 
 ForestDRLearner with random forest
-[(-40.54926397836239, (-66737.97737419911, 66656.87884624237)), (-1060.9891315668108, (-71239.975996551, 69117.99773341737)), (-484.1889745697696, (-48569.75732059183, 47601.37937145228)), (-31.30254914498452, (-30634.790891134944, 30572.185792844968))]
+[(-1248.510070446005, (-68694.85892837604, 66197.83878748401)), (-906.0265588498753, (-63524.703741860736, 61712.650624160975)), (-199.53214986181183, (-50362.09612629146, 49963.031826567814)), (-117.30299761644321, (-28484.959219410168, 28250.353224177277))]
 ForestDRLearner with lightgbm
 [LightGBM] [Info] Number of positive: 99050, number of negative: 247958
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.022040 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.052938 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 349
 [LightGBM] [Info] Number of data points in the train set: 347008, number of used features: 48
 [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.285440 -> initscore=-0.917635
 [LightGBM] [Info] Start training from score -0.917635
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.023825 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.018740 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 351
 [LightGBM] [Info] Number of data points in the train set: 347008, number of used features: 49
-[LightGBM] [Info] Start training from score 2.474943
+[LightGBM] [Info] Start training from score 2.479474
 [LightGBM] [Info] Number of positive: 99050, number of negative: 247959
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.019745 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.020858 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 349
 [LightGBM] [Info] Number of data points in the train set: 347009, number of used features: 48
 [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.285439 -> initscore=-0.917639
 [LightGBM] [Info] Start training from score -0.917639
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.024624 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.020234 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 351
 [LightGBM] [Info] Number of data points in the train set: 347009, number of used features: 49
-[LightGBM] [Info] Start training from score 2.473518
+[LightGBM] [Info] Start training from score 2.468988
 [LightGBM] [Info] Number of positive: 5003, number of negative: 247958
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.017542 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.015596 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 349
 [LightGBM] [Info] Number of data points in the train set: 252961, number of used features: 48
 [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.019778 -> initscore=-3.903222
 [LightGBM] [Info] Start training from score -3.903222
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.014070 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.018833 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 351
 [LightGBM] [Info] Number of data points in the train set: 252961, number of used features: 49
-[LightGBM] [Info] Start training from score 2.486871
+[LightGBM] [Info] Start training from score 2.479403
 [LightGBM] [Info] Number of positive: 5003, number of negative: 247959
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.014949 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.014388 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 349
 [LightGBM] [Info] Number of data points in the train set: 252962, number of used features: 48
 [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.019778 -> initscore=-3.903226
 [LightGBM] [Info] Start training from score -3.903226
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.015619 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.016995 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 351
 [LightGBM] [Info] Number of data points in the train set: 252962, number of used features: 49
-[LightGBM] [Info] Start training from score 2.475703
+[LightGBM] [Info] Start training from score 2.483171
 [LightGBM] [Info] Number of positive: 4638, number of negative: 247958
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.014162 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.013385 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 349
 [LightGBM] [Info] Number of data points in the train set: 252596, number of used features: 48
 [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.018361 -> initscore=-3.978976
 [LightGBM] [Info] Start training from score -3.978976
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.013095 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.016006 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 351
 [LightGBM] [Info] Number of data points in the train set: 252596, number of used features: 49
-[LightGBM] [Info] Start training from score 2.503636
+[LightGBM] [Info] Start training from score 2.504567
 [LightGBM] [Info] Number of positive: 4637, number of negative: 247959
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.015139 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.015616 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 349
 [LightGBM] [Info] Number of data points in the train set: 252596, number of used features: 48
 [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.018357 -> initscore=-3.979196
 [LightGBM] [Info] Start training from score -3.979196
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.014830 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.015907 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 351
 [LightGBM] [Info] Number of data points in the train set: 252596, number of used features: 49
-[LightGBM] [Info] Start training from score 2.501220
+[LightGBM] [Info] Start training from score 2.500289
 [LightGBM] [Info] Number of positive: 8092, number of negative: 247958
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.014707 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.015761 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 349
 [LightGBM] [Info] Number of data points in the train set: 256050, number of used features: 48
 [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.031603 -> initscore=-3.422383
 [LightGBM] [Info] Start training from score -3.422383
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.014539 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.017332 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 351
 [LightGBM] [Info] Number of data points in the train set: 256050, number of used features: 49
-[LightGBM] [Info] Start training from score 2.471724
+[LightGBM] [Info] Start training from score 2.465931
 [LightGBM] [Info] Number of positive: 8092, number of negative: 247959
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.014153 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.017459 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 349
 [LightGBM] [Info] Number of data points in the train set: 256051, number of used features: 48
 [LightGBM] [Info] [binary:BoostFromScore]: pavg=0.031603 -> initscore=-3.422387
 [LightGBM] [Info] Start training from score -3.422387
-[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.013824 seconds.
+[LightGBM] [Warning] Auto-choosing row-wise multi-threading, the overhead of testing was 0.013978 seconds.
 You can set `force_row_wise=true` to remove the overhead.
 And if memory is not enough, you can set `force_col_wise=true`.
 [LightGBM] [Info] Total Bins 351
 [LightGBM] [Info] Number of data points in the train set: 256051, number of used features: 49
-[LightGBM] [Info] Start training from score 2.466738
-[(-0.028211775761825847, (-0.9380910115010539, 0.8816674599774019)), (-0.8268173201628208, (-5.696872507149073, 4.04323786682343)), (0.2728335511974984, (-4.062791977747747, 4.608459080142743)), (-0.41689595849235317, (-3.793479617743876, 2.959687700759169))]
+[LightGBM] [Info] Start training from score 2.472531
+[(-0.027769491995463927, (-0.9448392537915979, 0.8893002698006698)), (-0.8272241708854806, (-5.7588126395125006, 4.104364297741538)), (0.2663614026808778, (-4.051325708908435, 4.584048514270189)), (-0.40601040367556324, (-3.699423029041822, 2.8874022216906945))]
 ForestDRLearner with xgboost
-[(-0.02800659816790304, (-0.9771351746991204, 0.921121978363314)), (-0.957139553707535, (-11.299359753483095, 9.385080646068023)), (0.2435827769138022, (-8.18109100065537, 8.668256554482973)), (-0.3932808058527323, (-5.3681066338821575, 4.581545022176693))]
+[(-0.0304012746159149, (-0.9584960050665373, 0.8976934558347074)), (-0.9365459049398579, (-12.898468527573826, 11.025376717694108)), (0.2122483360348402, (-8.280749878709504, 8.705246550779181)), (-0.3177739346801302, (-9.206769968605943, 8.571222099245682))]

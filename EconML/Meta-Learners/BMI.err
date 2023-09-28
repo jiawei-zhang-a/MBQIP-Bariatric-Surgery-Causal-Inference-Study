@@ -42,9 +42,18 @@
   def lower_credit(i, value, M, values, clustering):
 The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
 The 'nopython' keyword argument was not supplied to the 'numba.jit' decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
+`sparse` was renamed to `sparse_output` in version 1.2 and will be removed in 1.4. `sparse_output` is ignored unless you leave `sparse` to its default value.
 Traceback (most recent call last):
-  File "Meta-Learners_BMI.py", line 29, in <module>
+  File "Meta-Learners_BMI.py", line 34, in <module>
     main()
-  File "Meta-Learners_BMI.py", line 24, in main
-    est = DomainAdaptationLearner(models=RandomForestRegressor())
-TypeError: __init__() missing 1 required keyword-only argument: 'final_models'
+  File "Meta-Learners_BMI.py", line 13, in main
+    run_metalearner_with_model(TLearner, RandomForestRegressor(), "TLearner with Random Forest")
+  File "Meta-Learners_BMI.py", line 31, in run_metalearner_with_model
+    print(mbqip_utils.run_mbqip(est, "/scratch/jz4721/Observational-Study/data/mbqip/csv/BMI"))
+  File "../../utils/mbqip_read_run_metalearners.py", line 36, in run_mbqip
+    lower_bound, upper_bound = est.const_marginal_effect_interval(x)
+  File "/scratch/jz4721/Observational-Study/venv/lib/python3.8/site-packages/econml/_cate_estimator.py", line 332, in call
+    return self._use_inference_method(m.__name__, *args, **kwargs)
+  File "/scratch/jz4721/Observational-Study/venv/lib/python3.8/site-packages/econml/_cate_estimator.py", line 327, in _use_inference_method
+    raise AttributeError("Can't call '%s' because 'inference' is None" % name)
+AttributeError: Can't call 'const_marginal_effect_interval' because 'inference' is None
