@@ -3,8 +3,8 @@
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=10
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=500G
-#SBATCH --time=70:00:00
+#SBATCH --mem=80G
+#SBATCH --time=23:00:00
 #SBATCH --output=Logistic.out
 #SBATCH --error=Logistic.err
 #SBATCH --mail-type=END
