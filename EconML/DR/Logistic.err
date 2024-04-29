@@ -1,14 +1,2 @@
-/scratch/jz4721/Observational-Study/venv/lib/python3.8/site-packages/numpy/core/getlimits.py:500: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
-  setattr(self, word, getattr(machar, word).flat[0])
-/scratch/jz4721/Observational-Study/venv/lib/python3.8/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float64'> type is zero.
-  return self._float_to_str(self.smallest_subnormal)
-/scratch/jz4721/Observational-Study/venv/lib/python3.8/site-packages/numpy/core/getlimits.py:500: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
-  setattr(self, word, getattr(machar, word).flat[0])
-/scratch/jz4721/Observational-Study/venv/lib/python3.8/site-packages/numpy/core/getlimits.py:89: UserWarning: The value of the smallest subnormal for <class 'numpy.float32'> type is zero.
-  return self._float_to_str(self.smallest_subnormal)
-Traceback (most recent call last):
-  File "DRLearner_Logistic.py", line 87, in <module>
-    main()
-  File "DRLearner_Logistic.py", line 28, in main
-    est1 = LinearDRLearner(model_regression=RandomForestRegressor(),
-TypeError: __init__() got an unexpected keyword argument 'n_estimators'
+/opt/slurm/data/slurmd/job38205455/slurm_script: line 23: 40319 Killed                  python DRLearner_Logistic.py
+slurmstepd: error: Detected 1 oom-kill event(s) in StepId=38205455.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.

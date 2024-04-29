@@ -1,12 +1,14 @@
 #!/bin/bash
-#SBATCH --job-name=DR
+#SBATCH --job-name=DR_BMI
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=40
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=40G
-#SBATCH --time=12:00:00
+#SBATCH --mem=50G
+#SBATCH --time=11:00:00
 #SBATCH --output=BMI.out
 #SBATCH --error=BMI.err
+#SBATCH --mail-type=END
+#SBATCH --mail-user=jz4721@nyu.edu
 
 
 module purge;

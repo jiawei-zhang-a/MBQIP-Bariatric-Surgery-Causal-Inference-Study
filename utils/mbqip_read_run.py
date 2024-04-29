@@ -27,7 +27,7 @@ def run_mbqip(est, data_base_dir):
 
         x = load_and_format_covariates_mbqip(simulation_file)
         t, y = load_all_other_crap(simulation_file)
-
-        est.fit(y,t,X = x,W=None)
+        
+        est.fit(y,t,X = x)
         ans.append((est.ate(x),est.ate_interval(x)))
     return ans

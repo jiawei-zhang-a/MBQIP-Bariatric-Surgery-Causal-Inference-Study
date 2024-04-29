@@ -1,12 +1,16 @@
 #!/bin/bash
-#SBATCH --job-name=DR
+#!/bin/bash
+
+#SBATCH --job-name=DR_Logistic
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=40
 #SBATCH --ntasks-per-node=1
-#SBATCH --mem=40G
-#SBATCH --time=12:00:00
+#SBATCH --mem=50G
+#SBATCH --time=11:00:00
 #SBATCH --output=Logistic.out
 #SBATCH --error=Logistic.err
+#SBATCH --mail-type=END
+#SBATCH --mail-user=jz4721@nyu.edu
 
 module purge;
 
