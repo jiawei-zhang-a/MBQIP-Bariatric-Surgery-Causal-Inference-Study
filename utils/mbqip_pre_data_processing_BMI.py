@@ -2,7 +2,13 @@ import pandas as pd
 import numpy as np
 
 import os
-maindata = pd.DataFrame(pd.read_csv('../data/mbqip/all_bmi_main_data.csv'))
+
+os.chdir("../data/mbqip")
+
+maindata = pd.DataFrame(pd.read_csv('all_bmi_main_data.csv'))
+
+# make csv/BMI/
+os.makedirs("csv/BMI",exist_ok=True)
 
 #anlysis before processing
 maindata_T = maindata.describe(include = 'all').T
@@ -33,9 +39,7 @@ BPD_DS["treament"] = 1
 SADI_S = maindata.dropna(subset = ['SADI-S'])
 SADI_S["treament"] = 1
 
-#generate four BMI Dataset
-if os.path.exists("csv/BMI") == False:
-    os.mkdir("csv/BMI")
+
 dataset_1 = pd.concat([RYGB,Sleeve])
 dataset_1 = dataset_1.drop(["RYGB","Band","BPD/DS","SADI-S","Sleeve","REOP30_b'Yes'","READ30_b'Yes'","INTV30_b'Yes'","DEATH_1.0"],axis=1)
 dataset_1 = dataset_1.sample(frac=1)

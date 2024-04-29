@@ -3,15 +3,16 @@ import numpy as np
 
 import os
 #load
-import sys
-maindata = pd.DataFrame(pd.read_csv('../data/mbqip/all_bmi_main_data.csv'))
+os.chdir("../data/mbqip")
+
+maindata = pd.DataFrame(pd.read_csv('/all_bmi_main_data.csv'))
 
 #anlysis before processing
 maindata_T = maindata.describe(include = 'all').T
 maindata_T["num_nan"] = maindata.isnull().sum(axis = 0)
 maindata_T["num_distinct"] = maindata.nunique(axis = 0)
 maindata_T.head()
-maindata_T.to_csv("../data/mbqip/analysis.csv")
+maindata_T.to_csv("analysis.csv")
 
 #create the colomn with difference between the BMI and BMI_DISCH
 maindata['diff_BMI'] = maindata['BMI'] - maindata['BMI_DISCH']
