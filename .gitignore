@@ -1,6 +1,4 @@
 /HPC-Result
 /venv
-/data/mbqip/csv/Death
-/data/mbqip/csv/intervention
-/data/mbqip/csv/readmission
-/data/mbqip/csv/reoperation
+/data/mbqip/csv
+/data/mbqip/csv_o

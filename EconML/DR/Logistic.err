@@ -1,2 +1,0 @@
-/opt/slurm/data/slurmd/job38205455/slurm_script: line 23: 40319 Killed                  python DRLearner_Logistic.py
-slurmstepd: error: Detected 1 oom-kill event(s) in StepId=38205455.batch. Some of your processes may have been killed by the cgroup out-of-memory handler.

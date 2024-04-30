@@ -36,7 +36,7 @@ def get_risk_confidence_interval(y_0, y_1, alpha=0.05):
     
     # Check for division by zero
     if x0 == 0 or x1 == 0 or n0 - x0 == 0 or n1 - x1 == 0:
-        raise ValueError("Division by zero encountered in calculation")
+        return "Division by zero encountered in calculation"
     
     # Probability of the event occurring in each group
     p0, p1 = x0 / n0, x1 / n1
@@ -68,11 +68,11 @@ def run_mbqip_risk(est, data_base_dir):
         est.fit(y,t,X = x,W=None)
 
         y_0, y_1 = get_counterfactual_outcome(est, x, y, t)
-        #risk = get_risk_causal_relative_ratio(y_0, y_1)
+        risk = get_risk_causal_relative_ratio(y_0, y_1)
+        CI = get_risk_confidence_interval(y_0, y_1)
 
-        np.savez('result.npz', y_0=y_0, y_1=y_1)
+        #np.savez('result.npz', y_0=y_0, y_1=y_1)
+        ans.append([risk, CI])
 
-
-        ans.append("Finished simulation")
     return ans
 
