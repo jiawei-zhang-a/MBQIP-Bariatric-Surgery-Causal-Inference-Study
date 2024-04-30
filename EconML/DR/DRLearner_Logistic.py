@@ -1,19 +1,16 @@
-
+import sys
+PATH = "/scratch/jz4721/SCI/"
+sys.path.append(PATH+'utils')
 from econml.dml import CausalForestDML
 from sklearn.ensemble import RandomForestRegressor
-import sys
-sys.path.append('../../utils')
 import mbqip_risk_rate as mbqip_risk
 from sklearn.ensemble import RandomForestRegressor
-sys.path.append('../../utils')
 from econml.dr import ForestDRLearner, LinearDRLearner
 from sklearn.ensemble import RandomForestClassifier
 import lightgbm as lgb
 import xgboost as xgb
 import numpy as np
 np.random.seed(0)
-
-PATH = "/scratch/jz4721/SCI/"
 
 def main():
     print("\list \n(1)RYGB\n(2)Band\n(3)BPD-DS\n(4)SADI-S \nrelative treatment effect")

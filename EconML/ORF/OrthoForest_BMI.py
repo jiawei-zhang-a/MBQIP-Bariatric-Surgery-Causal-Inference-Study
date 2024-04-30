@@ -1,6 +1,7 @@
-from sklearn.ensemble import RandomForestRegressor
 import sys
-sys.path.append('../../utils')
+PATH = "/scratch/jz4721/SCI/"
+sys.path.append(PATH+'utils')
+from sklearn.ensemble import RandomForestRegressor
 import mbqip_read_run as mbqip_utils
 from econml.orf import DROrthoForest
 from sklearn.ensemble import RandomForestRegressor
@@ -9,7 +10,6 @@ import lightgbm as lgb
 import numpy as np
 np.random.seed(0)
 
-PATH = "/scratch/jz4721/SCI/"
 
 def main():
     est = DROrthoForest(

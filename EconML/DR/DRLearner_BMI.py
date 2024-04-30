@@ -1,15 +1,17 @@
-from sklearn.ensemble import RandomForestRegressor
 import sys
-sys.path.append('../../utils')
-import mbqip_read_run as mbqip_utils
+PATH = "/scratch/jz4721/SCI/"
+sys.path.append(PATH+'utils')
+
+from sklearn.ensemble import RandomForestRegressor
 from econml.dr import ForestDRLearner, LinearDRLearner
 from sklearn.ensemble import RandomForestClassifier
 import lightgbm as lgb
 import xgboost as xgb
 import numpy as np
 np.random.seed(0)
+import mbqip_read_run as mbqip_utils
 
-PATH = "/scratch/jz4721/SCI/"
+
 
 def main():
     print("\list \n(1)RYGB\n(2)Band\n(3)BPD-DS\n(4)SADI-S \BMI treatment effect\n")

@@ -1,11 +1,10 @@
-
 import sys
-sys.path.append('../utils')
+PATH = "/scratch/jz4721/SCI/"
+sys.path.append(PATH+'utils')
 import mbqip_risk_rate_dragon as mbqip_risk
 import numpy as np
 np.random.seed(0)
 
-PATH = "/scratch/jz4721/SCI/"
 
 def main():
     print("\list \n(1)RYGB\n(2)Band\n(3)BPD-DS\n(4)SADI-S \nrelative treatment effect")

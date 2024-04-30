@@ -1,16 +1,14 @@
+import sys
+PATH = "/scratch/jz4721/SCI/"
+sys.path.append(PATH+'utils')
 from econml.orf import DMLOrthoForest
 from sklearn.ensemble import RandomForestRegressor
-import sys
-sys.path.append('../../utils')
 import mbqip_risk_rate as mbqip_risk
-import os
 import mbqip_bootstrap as mbqip_bootstrap
 import lightgbm as lgb
 import xgboost as xgb
 import numpy as np
 np.random.seed(0)
-
-PATH = "/scratch/jz4721/SCI/"
 
 def main():
     
