@@ -9,8 +9,7 @@ import lightgbm as lgb
 import numpy as np
 np.random.seed(0)
 
-PATH = "../../"
-
+PATH = "/scratch/jz4721/SCI/"
 
 def main():
     est = DROrthoForest(

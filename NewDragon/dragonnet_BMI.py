@@ -4,8 +4,7 @@ import mbqip_read_run_dragon as mbqip_utils
 import numpy as np
 np.random.seed(0)
 
-PATH = "/Users/jiaweizhang/med/Observational-Study/"
-
+PATH = "/scratch/jz4721/SCI/"
 
 def main():
     print("\list \n(1)RYGB\n(2)Band\n(3)BPD-DS\n(4)SADI-S \BMI treatment effect\n")

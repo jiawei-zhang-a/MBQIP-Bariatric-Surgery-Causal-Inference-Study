@@ -8,10 +8,11 @@ import xgboost as xgb
 import numpy as np
 np.random.seed(0)
 
+PATH = "/scratch/jz4721/SCI/"
+
 def main():
     print("\list \n(1)RYGB\n(2)Band\n(3)BPD-DS\n(4)SADI-S \BMI treatment effect\n")
     print("CausalForestDML with random forest")
-    PATH = "../../"
     est = CausalForestDML(model_y=RandomForestRegressor(),
                         model_t=RandomForestRegressor(),
                         criterion='mse', n_estimators=1000,

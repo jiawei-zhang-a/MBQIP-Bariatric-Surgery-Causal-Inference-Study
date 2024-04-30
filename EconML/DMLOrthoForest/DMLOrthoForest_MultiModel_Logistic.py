@@ -10,8 +10,7 @@ import xgboost as xgb
 import numpy as np
 np.random.seed(0)
 
-#PATH = "/scratch/jz4721/Observational-Study"
-PATH = "../../"
+PATH = "/scratch/jz4721/SCI/"
 
 def main():
     
