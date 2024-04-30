@@ -9,7 +9,6 @@
 #SBATCH --mail-user=jz4721@nyu.edu
 #SBATCH --output=Logistic.out
 #SBATCH --error=Logistic.err
-#SBATCH --gres=gpu:1
 
 export OMP_NUM_THREADS=1
 
