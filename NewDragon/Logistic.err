@@ -1,4 +1,1 @@
 WARNING: Could not find any nv files on this host!
-/scratch/jz4721/SCI/utils/mbqip_risk_rate_dragon.py:62: RuntimeWarning: invalid value encountered in log
-  log_CI = [np.log(relative_risk_ratio) + -1 * z_value * SE, np.log(relative_risk_ratio) + z_value * SE]
-slurmstepd: error: *** JOB 45870971 ON cs087 CANCELLED AT 2024-05-01T06:34:34 DUE TO TIME LIMIT ***
