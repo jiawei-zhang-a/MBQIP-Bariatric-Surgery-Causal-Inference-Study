@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=CausalDML_BMI
+#SBATCH --job-name=effectCausalForest
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=28
 #SBATCH --ntasks-per-node=1
