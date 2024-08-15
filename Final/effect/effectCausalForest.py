@@ -4,8 +4,6 @@ sys.path.append(PATH+'utils')
 from econml.dml import CausalForestDML
 from sklearn.ensemble import RandomForestRegressor
 import mbqip_read_run as mbqip_utils
-import lightgbm as lgb
-import xgboost as xgb
 import numpy as np
 np.random.seed(0)
 
