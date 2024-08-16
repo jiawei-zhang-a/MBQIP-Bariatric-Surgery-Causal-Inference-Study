@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=DNN-risk
+#SBATCH --job-name=riskDragonNet
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=28
 #SBATCH --ntasks-per-node=1
@@ -7,8 +7,8 @@
 #SBATCH --time=30:00:00
 #SBATCH --mail-type=END
 #SBATCH --mail-user=jz4721@nyu.edu
-#SBATCH --output=Logistic.out
-#SBATCH --error=Logistic.err
+#SBATCH --output=riskDragonNet.out
+#SBATCH --error=riskDragonNet.err
 
 export OMP_NUM_THREADS=1
 
@@ -17,4 +17,4 @@ module purge
 singularity exec --nv \
     --overlay /scratch/jz4721/pyenv/overlay-15GB-500K.ext3:ro \
     /scratch/work/public/singularity/cuda11.6.124-cudnn8.4.0.27-devel-ubuntu20.04.4.sif \
-    /bin/bash -c "source /ext3/env.sh; python /scratch/jz4721/SCI/NewDragon/dragonnet_Logistic.py"
+    /bin/bash -c "source /ext3/env.sh; python /scratch/jz4721/SCI/NewDragon/riskDragonNet.py"
