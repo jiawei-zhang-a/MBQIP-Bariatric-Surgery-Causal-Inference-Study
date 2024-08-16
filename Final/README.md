@@ -14,8 +14,11 @@ This repository contains scripts and datasets for our paper 'Comparisons of the 
 
 ## Introduction
 
-This study focuses on estimating the causal effect of bariatric surgery on various health outcomes using observational data from the MBQIP. There are several prominent procedures for bariatric surgery - Sleeve Gastrectomy, Roux-en-Y Gastric Bypass (RYGB), Adjustable Gastric Band (AGB), Biliopancreatic Diversion with Duodenal Switch (BPD/DS), and Single Anastomosis Duodeno-Ileal Bypass with Sleeve Gastrectomy (SADI-S). We consider the most widely used Sleeve as the baseline and study the effect and risk for other procedures from a causal view. We employ state-of-the-art average treatment effect (ATE) estimation methods -  causal forest and double machine learning from EconML, and rewrite the method - DragonNet by ourselves. We apply the methods above to MBQIP (Medicare Beneficiary Quality Improvement Project) datasets to study the change in BMI as the effects and the probability of death, intervention, readmission, and reoperation as the risks before and after the surgery. Meanwhile, we compare the risks among different procedures via the relative risk (RR), which gives a more exact result for classification. 
+This study investigates the causal impact of bariatric surgery on various health outcomes using observational data from the MBQIP (Medicare Beneficiary Quality Improvement Project). Bariatric surgery encompasses several prominent procedures, including Sleeve Gastrectomy, Roux-en-Y Gastric Bypass (RYGB), Adjustable Gastric Band (AGB), Biliopancreatic Diversion with Duodenal Switch (BPD/DS), and Single Anastomosis Duodeno-Ileal Bypass with Sleeve Gastrectomy (SADI-S). In this analysis, we consider Sleeve Gastrectomy as the baseline procedure and evaluate the effects and risks associated with the other procedures from a causal perspective.
 
+We employ state-of-the-art average treatment effect (ATE) estimation methods -  causal forest and double machine learning from EconML, and rewrite the method - DragonNet - in pytorch by ourselves. We apply these methods to the MBQIP datasets to estimate the average treatment effect (ATE) for changes in BMI before and after surgery as the variable to study the effects, while we estimate the relative risk (RR) for the probability of death, intervention, readmission, and reoperation to study the risks. 
+
+We post our Python scripts to conduct the mentioned methods and the MBQIP datasets used in this work. 
 
 
 ## Dependencies
