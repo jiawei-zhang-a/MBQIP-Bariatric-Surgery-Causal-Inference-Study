@@ -125,14 +125,14 @@ class DragonNet:
             if self.valid_dataloader:
                 self.model.eval()
                 valid_loss = self.validate_step()
-                print(
-                    f"epoch: {epoch}--------- train_loss: {loss} ----- valid_loss: {valid_loss}"
-                )
+                # print(
+                #     f"epoch: {epoch}--------- train_loss: {loss} ----- valid_loss: {valid_loss}"
+                # )
                 self.model.train()
                 if early_stopper.early_stop(valid_loss):
                     break
             else:
-                print(f"epoch: {epoch}--------- train_loss: {loss}")
+                # print(f"epoch: {epoch}--------- train_loss: {loss}")
 
     def validate_step(self):
         """
