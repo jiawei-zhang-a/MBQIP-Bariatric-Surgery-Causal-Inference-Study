@@ -9,7 +9,6 @@ This repository contains scripts and datasets for our paper 'Comparisons of the 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Results](#results)
-- [Contributors](#contributors)
 - [License](#license)
 
 ## Introduction
@@ -42,7 +41,26 @@ We post our Python scripts to conduct the mentioned methods and the MBQIP datase
 
 `pip install -r requirements.txt`
 
+
+## Structure
+
+This repository contains code for analyzing causal risks and treatment effects. The repository is organized into several folders for ease of use:
+
+- `risk/`: All causal risk-related calculations can be found here.
+- `effect/`: All treatment effect-related calculations and models are stored here.
+- `utils/`: Handy tools and utilities for performing calculations and other common tasks.
+- `dataset/`: This folder contains the datasets. **Please preprocess the data before usage**.
+
+
 ## Usage
+
+1. Preprocess the data before running any analysis.
+2. Navigate to the relevant folder (`risk/` or `effect/`) and run the desired script:
+
+   ```bash
+   cd risk/   # or cd effect/
+   bash script_name.sh
+
 
 ## Results
 
