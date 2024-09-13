@@ -1,6 +1,6 @@
 ### Dataset Overview
 
-Our dataset originates from the Medicare Beneficiary Quality Improvement Project (MBQIP), covering the years 2015 to 2020. This dataset was subject to basic data cleaning, where extreme outliers were removed and relevant data extracted. The data cleaning process is detailed in the `data_cleaning.ipynb` notebook. After cleaning, the resulting dataset, `all_bmi&main_data.csv`, contains all the necessary data for further analysis.
+Our dataset originates from the Medicare Beneficiary Quality Improvement Project (MBQIP), covering the years 2015 to 2020. This dataset was subject to basic data cleaning, where extreme outliers were removed and relevant data extracted. The data cleaning process is presented in the `data_cleaning.ipynb` notebook. After cleaning, the resulting dataset, `all_bmi&main_data.csv`, contains all the necessary data for further analysis.
 
 ### Data Processing Workflow
 
@@ -12,7 +12,7 @@ After obtaining `all_bmi&main_data.csv`, the data will be used in two separate p
 
 2. **Risk Processing:**
    - **File:** `mbqip_pre_data_processing_risk.py`
-   - **Purpose:** This script assesses risk factors such as intervention, reoperation, readmission, and death associated with the surgeries.
+   - **Purpose:** This script assesses intervention, reoperation, readmission, and death associated with the surgeries to measure the risk from different aspects.
 
 ### Output Datasets
 
