@@ -17,7 +17,7 @@ def main():
     run_linear_dml_for_each_outcome_and_model(xgb.XGBRegressor(), "XGBoost")
 
 def run_linear_dml_for_each_outcome_and_model(model, model_name):
-    outcomes = ["Death", "intervention", "readmission", "reoperation"]
+    outcomes = ["intervention", "readmission", "reoperation"]
     for outcome in outcomes:
         print(f"\nLinearDML with {model_name} for {outcome}")
         est = LinearDML(model_y=model, model_t=model)
